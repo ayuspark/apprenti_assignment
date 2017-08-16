@@ -1,0 +1,173 @@
+* {
+  /*outline: 1px solid gold;*/
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  width: 970px;
+  margin: 15px auto;
+  position: relative;
+}
+
+main {
+  width: 970px;
+  margin: 38px auto;
+  padding: 5px;
+  position: relative;
+  background: linear-gradient(#e6e6e6, white);
+}
+
+header img {
+  width: 10%;
+  display: inline-block;
+  vertical-align: bottom;
+  z-index: 100;
+}
+
+header h1 {
+  display: inline-block;
+  width: 88%;
+  vertical-align: bottom;
+}
+
+header h2 {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #2f6c9f;
+  color: white;
+  z-index: -100;
+}
+
+.left_side {
+  width: calc(25% - 1em);
+  display: inline-block;
+  margin-right: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.contact_header, .main_article, section {
+  width: calc(75% - 0.3em);
+  margin-left: 25%;
+}
+
+.main_article {
+  border-top: 2px solid grey;
+  margin-top: 10px;
+}
+
+.left_side a {
+  display: block;
+  width: 80%;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  padding: 5px 10px;
+  margin: 5px auto;
+  border-radius: 5px;
+  box-shadow: 2px 2px grey;
+}
+
+.left_1 a:nth-of-type(1) {
+  background: #2f6c9f;
+  border: 1px solid #2f6c9f;
+}
+
+.left_1 a:nth-of-type(2) {
+  background: #ed7a0e;
+  border: 1px solid #ed7a0e;
+}
+
+.left_2 {
+  margin-top: 10px;
+  padding-bottom: 30px;
+  border-top: 1px solid grey;
+  color: white;
+  text-align: center;
+  background-image: url("img/ad_background.png");
+  background-size: 100% auto;
+  background-repeat: repeat;
+}
+
+.left_2 p {
+  font-size: 1.4em;
+  line-height: 1.7em;
+}
+
+.left_2 img {
+  display: block;
+  width: 50%;
+  margin: 10% auto 30% auto;
+}
+
+.left_2 a {
+  background-color: skyblue;
+  border: 1px solid skyblue;
+}
+
+.contact_header img {
+  width: 3%;
+  vertical-align: top;
+}
+
+.contact_header span {
+  color: #2f6c9f;
+  margin-right: 27%;
+  vertical-align: top;
+}
+
+.contact p img {
+  width: 8%;
+  margin-right: 1%;
+}
+
+.contact * {
+  margin: 0px;
+}
+
+.contact {
+  display: inline-block;
+  text-align: right;
+  vertical-align: bottom;
+}
+
+.contact p:nth-of-type(2) {
+  font-size: 2em;
+  color: skyblue;
+}
+
+.main_article h3 {
+  color: #2f6c9f;
+  font-size: 1.3em;
+  margin-top: 5px;
+}
+
+.main_article img {
+  width: 30%;
+  display: block;
+  margin: 10px auto;
+}
+
+section {
+  border: 3px solid #2f6c9f;
+  padding: 10px;
+}
+
+section img {
+  width: 18%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+section div {
+  width: 78%;
+  display: inline-block;
+  color: #2f6c9f;
+  vertical-align: top;
+  margin: 5px;
+}

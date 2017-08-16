@@ -1,0 +1,47 @@
+*{
+ margin:0px;
+ padding: 0px; 
+ /* outline: 1px dashed skyblue; */
+}
+#wrapper{
+ width: 950px;
+ background-color: silver;
+ margin: 0px auto;
+ /* padding-top: 10px; */
+}
+#header{
+ height: 150px;
+ background-color: green;
+ margin: 10px;
+}
+#navigation{
+ height: 300px;
+ width: 200px;
+ background-color: blue;
+ margin: 10px 24px 10px 10px;
+ display: inline-block; 
+}
+#main_content{
+ display: inline-block; 
+ height: 400px;
+ width: 700px;
+ background-color: red;
+ margin-right: 0;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ vertical-align: top;
+}
+.subcontents{
+ height: 200px;
+ width: 210px;
+ background-color: yellow;
+ margin: 15px 10px;
+ display: inline-block;
+}
+#advertisement{
+ height: 120px;
+ width: 660px;
+ background-color: purple;
+ margin: 10px 10px;
+}
+

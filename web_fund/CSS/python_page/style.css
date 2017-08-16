@@ -1,0 +1,129 @@
+* {
+    /* outline: 1px solid goldenrod; */
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #265175;
+    width: 970px;
+    margin: 0 auto;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+header img {
+    display: inline-block;
+    width: 25%;
+    margin-right: calc(40% - 0.5em);
+    margin-left: 5%;
+}
+
+.header_right {
+    width: 27%;
+    margin-right: 2%;
+    display: inline-block;
+    vertical-align: bottom;
+    color: white;
+}
+
+#search {
+    padding: 20px 30px;
+    background-color: #444444;
+    box-shadow: 3px 3px black;
+    border: 2px solid #444444;
+    border-radius: 10px;
+}
+
+#search input[type=text] {
+    height: 25px;
+}
+
+#search input[type=submit] {
+    color: white;
+    height: 25px;
+    border: 2px outset grey;
+    margin: auto 10px;
+}
+
+nav ul {
+    width: 80%;
+    margin: 20px auto 10px auto;
+    color:white;
+    background-color: #497fab;
+    border: 2px solid #497fab;
+    border-radius: 10px;
+}
+nav ul li {
+    display: inline-block;
+    /* width: calc(90% / 6); */
+    padding: 10px 15px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.3em;
+}
+
+.left {
+    display: inline-block;
+    width: 25%;
+    margin-left:10%;
+    color: white;
+    text-decoration: underline;
+    font-family: sans-serif;
+    font-size: 1em;
+    line-height: 1.6em;
+    text-align: center;
+    vertical-align: top;
+}
+
+.right {
+    display: inline-block;
+    width: 50%;
+    margin-left: 5%;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#zen {
+    color: gold;
+    font-style: italic;
+    line-height: 1.8em;
+}
+
+main {
+    width: 970px;
+    margin: 10px auto;
+    text-align: center;
+    font-family: sans-serif;
+}
+.column {
+    width: 45%;
+    margin: 0 2%;
+    display: inline-block;
+    border-top: 5px solid skyblue;
+}
+
+.column li {
+    color: skyblue;
+    line-height: 1.4em;
+}
+
+footer {
+    background-color: #497fab;
+    color: skyblue;
+    width: 970px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer p{
+    display: inline-block;
+    width: 20%;
+    margin: 40px auto 10px auto;
+}
+
+#copyright {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+}

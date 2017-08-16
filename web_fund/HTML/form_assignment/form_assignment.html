@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form Assignment</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+    <form id="registration">
+      <fieldset>
+        <h4>My Registration Form</h4>
+        <label>
+        First Name:<input type="text" name="first_name">
+        </label>
+        <label>
+        Last Name: <input type="text" name="last_name">
+        </label>
+        <label>
+        Email:<input type="email" name="email">
+        </label>
+        <label>
+        Password:<input type="password" name="password">
+        </label>
+        <label>
+        PW Confirm:<input type="password" name="password">
+        </label>
+        <label>
+        Birthday:<input type="date" name="bday">
+        </label>
+        <label>
+        Name:<input type="text" name="name">
+        </label>
+        <label>Select Gender:
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="other">Other
+        </label>
+        <label>
+          A short description about yourself:
+        <textarea row="40" column="500">
+        </textarea>
+
+        <label>
+          Favorite Lanaguage
+          <select name="fav_language" form="registration">
+            <option value="ruby">Ruby</option>
+            <option value="javaScript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="c#">C#</option>
+          </select>
+        </label>
+        <input type="submit" id="submit">
+      </fieldset>
+    </form>
+
+  </body>
+</html>

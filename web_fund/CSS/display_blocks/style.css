@@ -1,0 +1,32 @@
+* {
+    /* outline: 1px solid skyblue; */
+    box-sizing: border-box;
+}
+
+header {
+    width: 960px; 
+    padding: 10px auto;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.wrapper {
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+     flex-wrap: wrap;
+    flex-direction: row; 
+    margin: 10px auto; 
+    /* outline: 1px solid red; */
+}
+
+.wrapper img {
+    margin: 10px auto 10px 0;
+    border: 2px solid black;
+}
+

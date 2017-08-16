@@ -1,0 +1,49 @@
+* {
+  /*outline: 1px solid skyblue;*/
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap{
+  width: 960px;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.red {
+  width: 48%;
+  height: 100px;
+  background-color: red;
+  margin: 15px 0;
+}
+
+.blue {
+  width: 960px;
+  height: 100px;
+  margin: 15px auto;
+  background-color: blue;
+}
+
+.yellow {
+  width: 30%;
+  height: 200px;
+  background-color: yellow;
+}
+
+.green {
+  width: 960px;
+  height: 300px;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: green;
+}
+
+.purple {
+  height: 60%;
+  width: 30%;
+  background-color: purple;
+  margin: auto;
+}
