@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>user_form</title>
+    <style>
+      * {
+        outline: 1px solid skyblue;
+      }
+
+    </style>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+  	<script type="text/javascript">
+    $(document).ready(function(){
+      var $addUserButton = $('#add_user');
+      $addUserButton.on('click', function(e){
+        e.preventDefault();
+        var user = [];
+        var $fName = $('input[name=f_name]').val();
+        user.push($fName);
+        var $lName = $('input[name=l_name]').val();
+        user.push($lName);
+        var $email = $('input[name=email]').val();
+        user.push($email);
+        var $contact = $('input[name=contact]').val();
+        user.push($contact);
+        var trEl = document.createElement('tr');
+        for(let i = 0; i < 4; i++){
+          var tdEl = document.createElement('td');
+          tdEl.textContent = user[i];
+          trEl.appendChild(tdEl);
+        };
+        $('#user_table').append(trEl);
+      })
+    });
+    </script>
+  </head>
+  <body>
+    <table id='user_table'>
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+      </thead>
+    </table>
+    <form id="user_form">
+      <fieldset>
+        <label for="f_name">First Name:
+          <input type="text" name="f_name" placeholder="first name">
+        </label>
+        <label for="l_name">Last Name:
+          <input type="text" name="l_name" placeholder="last name">
+        </label>
+        <label for="email">Email:
+          <input type="email" name="email" placeholder="abc@abc.com">
+        </label>
+        <label for="contact">Contact:
+          <input type="number" name="contact" placeholder="206 123 1234">
+        </label>
+        <input id="add_user" type="submit">
+      </fieldset>
+    </form>
+
+  </body>
+</html>
