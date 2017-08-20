@@ -14,23 +14,18 @@
     $(document).ready(function(){
       var $addUserButton = $('#add_user');
       $addUserButton.on('click', function(e){
+        console.table($('input').val());
         e.preventDefault();
-        var user = [];
-        var $fName = $('input[name=f_name]').val();
-        user.push($fName);
-        var $lName = $('input[name=l_name]').val();
-        user.push($lName);
-        var $email = $('input[name=email]').val();
-        user.push($email);
-        var $contact = $('input[name=contact]').val();
-        user.push($contact);
-        var trEl = document.createElement('tr');
-        for(let i = 0; i < 4; i++){
-          var tdEl = document.createElement('td');
-          tdEl.textContent = user[i];
-          trEl.appendChild(tdEl);
-        };
-        $('#user_table').append(trEl);
+        var trContent = '';
+        $('input').each(function(){
+          var $tdContent = $(this).val();
+          console.log($tdContent);
+          var tdEl = '<td>' + $tdContent + '</td>';
+          console.log(tdEl);
+          trContent += tdEl;
+        })
+        console.log(trContent);
+        $('#user_table').append('<tr>' + trContent + '</tr>');
       })
     });
     </script>
