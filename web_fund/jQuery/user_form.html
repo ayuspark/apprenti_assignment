@@ -13,18 +13,15 @@
   	<script type="text/javascript">
     $(document).ready(function(){
       var $addUserButton = $('#add_user');
-      $addUserButton.on('click', function(e){
-        console.table($('input').val());
+      $addUserButton.submit(function(e){
         e.preventDefault();
+        // console.log(e.which);
         var trContent = '';
         $('input').each(function(){
           var $tdContent = $(this).val();
-          console.log($tdContent);
           var tdEl = '<td>' + $tdContent + '</td>';
-          console.log(tdEl);
           trContent += tdEl;
         })
-        console.log(trContent);
         $('#user_table').append('<tr>' + trContent + '</tr>');
       })
     });
