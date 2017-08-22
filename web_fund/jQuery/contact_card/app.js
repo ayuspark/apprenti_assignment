@@ -24,13 +24,14 @@ $(document).ready(function(){
 
   $('.contact_cards').on('click', 'div', function(e){
     console.log(e.target);
+    console.log($(this));
     if($("div[id~='back']")){
       $(this).hide();
       $(this).prev().show();
     }
     // else {
     //   $(this).hide();
-    //   $(this).next().show();
+    //   $(this).show();
     // }
     var cardID = $(this).attr('id')
     console.log(cardID);
