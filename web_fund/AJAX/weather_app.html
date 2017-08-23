@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App Assignment</title>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.weather').on('submit', function(e){
+          $('.display').children().remove();
+          var apiKey = '&appid=e44598e372cd272e07f029a0c0ddc846';
+          var apiURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
+          e.preventDefault();
+          apiURL += $('input[name=city]').val();
+          apiURL += apiKey;
+          var time = new Date().getTime();
+          var date = new Date(time);
+
+          $.get(apiURL, function(res){
+            console.log(res);
+            var tempNow = Math.floor(res.main.temp * 9/5 - 459.67);
+            $('.display').append('<h2>' + res.name + '</h2>')
+                         .append('<p>Time:' + date.toString() + '</p>')
+                         .append('<p>Weather: ' + res.weather[0].description + '</p>')
+                         .append('<p>Temperature: ' + tempNow + '</p>')
+          }, 'JSON')
+        })
+      })
+    </script>
+    <style media="screen">
+      * {
+        /*outline: 1px dashed orange;*/
+        box-sizing: border-box;
+      }
+
+      form {
+        width: 970px;
+        height: 10vh;
+        margin: 20vh auto 3rem auto;
+        text-align: center;
+      }
+
+      input[name='city'] {
+        display: inline-block;
+        line-height: 5rem;
+        /*padding: 0.5rem 0.6rem;*/
+        width: 40%;
+        font: lighter 3rem sans-serif;
+      }
+
+      button {
+        display: inline-block;
+        font: lighter 3rem sans-serif;
+        color: white;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border: 0 solid grey;
+        border-radius: 3px;
+        margin-left: 3rem;
+      }
+
+      .display {
+        width: 970px;
+        margin: 3rem auto;
+        text-align: center;
+        font: lighter 2.3rem sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="weather">
+      <input type="text" name="city" value="" placeholder="...type in a city">
+      <button type="submit" name="search">Search</button>
+    </form>
+    <section class="display">
+      <!-- <h2 class="city_name"></h2> -->
+
+    </section>
+
+  </body>
+</html>
