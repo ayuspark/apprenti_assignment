@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PokeDex Assignment</title>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.js'></script>
+    <script type="text/javascript">
+      function buildDescription(name, types, height, weight) {
+        $('.pokeDex').prepend('<h2>' + name + '</h2>')
+        $('.pokeDex').append(
+          ulTypes +
+          `<h4>Height</h4>` + `<p>` + height + `</p>` +
+          `<h4>Weight</h4>` + `<p>` + weight + `</p>`
+        )
+      }
+
+      $(document).ready(function(){
+        for(let i = 1; i <= 151; i++){
+          var src = 'http://pokeapi.co/media/img/' + i + '.png';
+          var img_id = i;
+          $('.pokemon_container').append('<img src= ' + src + ' id=' + img_id + ' />');
+        }
+
+        $('.pokemon_container').on('click', 'img', function(e){
+          console.log(e.target.id);
+          $('.pokeDex').append('<img src=' + e.target.src + ' />')
+          var pokeURL = 'http://pokeapi.co/api/v1/pokemon/';
+          pokeURL += e.target.id;
+
+        })
+      })
+    </script>
+    <style media="screen">
+      main {
+        width: 970px;
+        margin: 2rem auto;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .pokemon_container {
+        width: 78%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+
+      img{
+        width: 120px;
+        margin: 0;
+      }
+
+      .pokeDex {
+        width: 18%;
+        height: 40rem;
+        border: 5px solid red;
+      }
+
+      .pokeDex img {
+        width: 90%;
+        display: block;
+        margin: 0.3rem auto;
+      }
+      </style>
+  </head>
+  <body>
+    <main>
+      <section class="pokemon_container">
+
+      </section>
+      <section class="pokeDex">
+
+      </section>
+    </main>
+
+  </body>
+</html>
