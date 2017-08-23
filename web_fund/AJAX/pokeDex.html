@@ -7,11 +7,20 @@
     <script type="text/javascript">
       function buildDescription(name, types, height, weight) {
         $('.pokeDex').prepend('<h2>' + name + '</h2>')
-        $('.pokeDex').append(
-          ulTypes +
-          `<h4>Height</h4>` + `<p>` + height + `</p>` +
-          `<h4>Weight</h4>` + `<p>` + weight + `</p>`
+
+        var ulTypes = document.createElement('ul');
+        types.forEach(function(val, i){
+          console.log(val.name);
+          $(ulTypes).append('<li>' + val.name + '</li>')
+        });
+        console.log(ulTypes);
+        $('.pokeDex').append('<h4>Types</h4>')
+                     .append(ulTypes)
+                     .append(
+                        `<h4>Height</h4>` + `<p>` + height + `</p>` +
+                        `<h4>Weight</h4>` + `<p>` + weight + `</p>`
         )
+
       }
 
       $(document).ready(function(){
@@ -22,10 +31,21 @@
         }
 
         $('.pokemon_container').on('click', 'img', function(e){
+          $('.pokeDex').children().remove();
           console.log(e.target.id);
+          var name = '', height = '', weight = '', types = [];
           $('.pokeDex').append('<img src=' + e.target.src + ' />')
           var pokeURL = 'http://pokeapi.co/api/v1/pokemon/';
           pokeURL += e.target.id;
+
+          $.get(pokeURL, function(result){
+            name = result.name;
+            height = result.height;
+            weight = result.weight;
+            types = result.types;
+
+            buildDescription(name, types, height, weight);
+          }, 'JSON')
 
         })
       })
@@ -55,12 +75,19 @@
         width: 18%;
         height: 40rem;
         border: 5px solid red;
+        text-align: center;
       }
 
       .pokeDex img {
         width: 90%;
         display: block;
         margin: 0.3rem auto;
+      }
+
+      .pokeDex ul, li {
+        width: 100%;
+        text-align: left;
+        list-style: none;
       }
       </style>
   </head>
