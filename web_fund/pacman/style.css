@@ -12,6 +12,7 @@ body {
 
 #world_container {
   margin: 2rem auto;
+  position: relative;
 }
 
 #world_container div {
@@ -31,4 +32,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20%;
+}
+
+#pacman {
+  background: url('https://goo.gl/sxSDWS') no-repeat center;
+  background-size: 95%;
+  position: absolute;
+  /*top: 1.25rem;
+  left: 1.25rem;*/
 }
