@@ -41,3 +41,11 @@ body {
   /*top: 1.25rem;
   left: 1.25rem;*/
 }
+
+#score {
+  width: 30vw;
+  margin: 1.7rem auto;
+  color: #DCDCDC;
+  font: lighter 3rem helvetica;
+  text-align: center;
+}

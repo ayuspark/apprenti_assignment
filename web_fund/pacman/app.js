@@ -75,32 +75,34 @@ function displayPacman(x, y){
 
 function movePacman(e){
   var key = e.keyCode;
-  eatCoin(pacman1.y, pacman1.x);
   if(key === 38 && world[pacman1.y - 1][pacman1.x] !== 0){
     pacman1.y -= 1;
-    eatCoin(pacman1.y - 1, pacman1.x);
+    // eatCoin(pacman1.y, pacman1.x);
   } else if(key === 40 && world[pacman1.y + 1][pacman1.x] !== 0){
     pacman1.y += 1;
-    eatCoin(pacman1.y, pacman1.x);
   } else if(key === 37 && world[pacman1.y][pacman1.x - 1] !== 0){
     pacman1.x -= 1;
-    eatCoin(pacman1.y, pacman1.x - 1);
+    // eatCoin(pacman1.y, pacman1.x - 1);
   } else if(key === 39 && world[pacman1.y][pacman1.x + 1] !== 0){
     pacman1.x += 1;
-    eatCoin(pacman1.y, pacman1.x + 1);
+    // eatCoin(pacman1.y, pacman1.x + 1);
   }
+  eatCoin(pacman1.y, pacman1.x);
+  // eatCoin(pacman1.y, pacman1.x);
   displayPacman(pacman1.x, pacman1.y);
-  console.log('pacman posiiton' + pacman1.y + ' ' + pacman1.x);
+  // console.log('pacman posiiton' + pacman1.y + ' ' + pacman1.x);
 }
 
 function eatCoin(y, x){
   if(world[y][x] === 1){
+    world[y][x] = 0;
     var divPosition = pacman1.y * (colNumber + 1) + pacman1.x;
     var coinEatenDiv = document.getElementById('world_container').children[divPosition];
-    console.log(divPosition, coinEatenDiv);
+    // console.log(divPosition, coinEatenDiv);
     coinEatenDiv.setAttribute('class', '');
     Pacman.count++;
   }
+  document.getElementById('score').innerHTML = Pacman.count;
   // console.log(Pacman.count);
 }
 
