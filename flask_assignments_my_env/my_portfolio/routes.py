@@ -16,6 +16,7 @@ def about():
 
 @app.route('/projects')
 def projects():
-    return render_template('projects.html')
+    my_projects = ['fuzzfeed', 'busmall', 'salmon cookie']
+    return render_template('projects.html', projects=my_projects)
 
 app.run(debug=True)

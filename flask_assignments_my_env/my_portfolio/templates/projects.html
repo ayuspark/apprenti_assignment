@@ -9,9 +9,14 @@
     <body>
         <h2>These are the silly projects I have done in the past month!</h2>
         <ul>
+            {% for project in projects %}
+            <li>{{project}}</li>
+            {% endfor %}
+        </ul>
+        <!-- <ul>
             <li>BusMall</li>
             <li>Salmon Cookie</li>
             <li>FuzzFeed</li>
-        </ul>
+        </ul> -->
     </body>
 </html>
