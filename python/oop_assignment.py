@@ -67,3 +67,64 @@ class Car(object):
 car_1 = Car(13000)
 car_1.drive().drive().drive().drive()
 car_1.display_info()
+
+
+class Animal(object):
+    # class Animal assignment
+    def __init__(self, name, health=100):
+        self.name = name
+        self.health = health
+        self.distance = 0
+    
+    def walk(self):
+        self.health -= 1
+        return self
+
+    def run(self):
+        self.health -= 5
+        return self
+
+    def display_health(self):
+        print('Health is: ', self.health)
+
+animal_1 = Animal('lola')
+animal_1.walk().run().run()
+animal_1.display_health()
+print(animal_1.name)
+
+class Dog(Animal):
+    # class Dog assignment
+    def __init__(self, name):
+        super(Animal, self).__init__()
+        self.health = 150
+        self.name = name
+
+    def pet(self, boo=False):
+        if boo == True:
+            self.health += 5
+        return self
+
+dog_1 = Dog('haha')
+dog_1.run().run().run()
+dog_1.display_health()
+print(dog_1.name)
+
+
+class Dragon(Animal):
+    def __init__(self, name):
+        super(Animal, self).__init__()
+        self.name = name
+        self.health = 170
+        super(Animal, self).display_health()
+        print('I am a bloody dragon and my health is: ', self.health)
+    
+    def fly(self):
+        self.health -= 10
+        return self
+
+    # def display_health(self):
+
+dragon_1 = Dragon('bob')
+dragon_1.fly().fly().fly()
+dragon_1.display_health()
+dragon_1.run()
