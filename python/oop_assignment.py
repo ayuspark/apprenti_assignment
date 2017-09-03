@@ -11,7 +11,7 @@ class Bike(object):
             'The price is %s, the max speed is %s, and the miles is %s'
             % (self.price, self.max_speed, self.miles)
         )
-    
+
     def ride(self):
         self.miles += 10
         print(self.miles)
@@ -24,10 +24,6 @@ class Bike(object):
         return self
 
 
-bike1 = Bike('55', '70')
-bike1.display_info()
-bike1.ride().ride().ride()
-bike1.reverse()
 
 
 class Car(object):
@@ -38,7 +34,7 @@ class Car(object):
         self.fuel = 1.0
         self.mileage = 0
         self.tax = self.get_tax()
-    
+
     def display_info(self):
         print('''
               Price: %d \n
@@ -46,7 +42,7 @@ class Car(object):
               Speed: %s \n
               Fuel: %s \n
               Mileage: %s \n
-        '''%(self.price, self.tax, self.speed, self.fuel, self.mileage))
+        ''' % (self.price, self.tax, self.speed, self.fuel, self.mileage))
 
     def get_tax(self):
         if self.price > 10000:
@@ -92,6 +88,7 @@ animal_1.walk().run().run()
 animal_1.display_health()
 print(animal_1.name)
 
+
 class Dog(Animal):
     # class Dog assignment
     def __init__(self, name):
@@ -99,14 +96,10 @@ class Dog(Animal):
         self.health = 150
 
     def pet(self, boo=False):
-        if boo == True:
+        if boo is True:
             self.health += 5
         return self
 
-dog_1 = Dog('haha')
-dog_1.run().run().run()
-dog_1.display_health()
-print(dog_1.name)
 
 
 class Dragon(Animal):
@@ -121,7 +114,19 @@ class Dragon(Animal):
     def display_health(self):
         print('I am a bloody dragon and my health is: ', self.health)
 
-dragon_1 = Dragon('bob')
-dragon_1.fly().fly().fly()
-dragon_1.display_health()
-# dragon_1.run()
+
+def main():
+    # to make variable not constant
+    bike1 = Bike('55', '70')
+    bike1.display_info()
+    bike1.ride().ride().ride()
+    bike1.reverse()
+    dog_1 = Dog('haha')
+    dog_1.run().run().run()
+    dog_1.display_health()
+    dragon_1 = Dragon('bob')
+    dragon_1.fly().fly().fly()
+    dragon_1.display_health()
+
+if __name__ == '__main__':
+    main()
