@@ -95,9 +95,8 @@ print(animal_1.name)
 class Dog(Animal):
     # class Dog assignment
     def __init__(self, name):
-        super(Animal, self).__init__()
+        super(Dog, self).__init__(name)
         self.health = 150
-        self.name = name
 
     def pet(self, boo=False):
         if boo == True:
@@ -112,19 +111,17 @@ print(dog_1.name)
 
 class Dragon(Animal):
     def __init__(self, name):
-        super(Animal, self).__init__()
-        self.name = name
+        super(Dragon, self).__init__(name)
         self.health = 170
-        super(Animal, self).display_health()
-        print('I am a bloody dragon and my health is: ', self.health)
     
     def fly(self):
         self.health -= 10
         return self
 
-    # def display_health(self):
+    def display_health(self):
+        print('I am a bloody dragon and my health is: ', self.health)
 
 dragon_1 = Dragon('bob')
 dragon_1.fly().fly().fly()
 dragon_1.display_health()
-dragon_1.run()
+# dragon_1.run()
