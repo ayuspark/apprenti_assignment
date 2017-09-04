@@ -115,18 +115,48 @@ class Dragon(Animal):
         print('I am a bloody dragon and my health is: ', self.health)
 
 
+class Mathstuff(object):
+    # class Mathstuff assignment
+    def __init__(self):
+        self.mysum = 0
+
+
+    def add(self, *nums):
+        for i in nums:
+            if type(i) is list or type(i) is tuple:
+                self.mysum += sum(i)
+            else:
+                self.mysum += i
+        return self
+
+    def substract(self, *nums):
+        for i in nums:
+            if type(i) is list or type(i) is tuple:
+                self.mysum -= sum(i)
+            else:
+                self.mysum -= i
+        return self
+
+
+
+
 def main():
     # to make variable not constant
     bike1 = Bike('55', '70')
     bike1.display_info()
     bike1.ride().ride().ride()
     bike1.reverse()
+
     dog_1 = Dog('haha')
     dog_1.run().run().run()
     dog_1.display_health()
+
     dragon_1 = Dragon('bob')
     dragon_1.fly().fly().fly()
     dragon_1.display_health()
+    
+    math_1 = Mathstuff()
+    print(math_1.add(2, 2, 4, 55, 3).substract(3, 4).mysum)
 
 if __name__ == '__main__':
     main()
