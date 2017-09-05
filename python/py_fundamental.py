@@ -1,3 +1,5 @@
+import random
+
 words = "It's thanksgiving day. It's my birthday,too!"
 print(words.find('day'))
 print(words.replace('day', 'month', 2))
@@ -103,3 +105,20 @@ def print_checkerbord():
             print(line2)
 
 print_checkerbord()
+
+
+def throw_coin_5000_times():
+    i = 0
+    head = 0
+    tail = 0
+    while i < 5000:
+        x = random.random()
+        if x >= 0.5:
+            head += 1
+        else:
+            tail += 1
+        i += 1
+    print('Head is %s \nTail is %s' % (head, tail))
+
+throw_coin_5000_times()
+
