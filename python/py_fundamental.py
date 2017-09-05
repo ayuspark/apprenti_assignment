@@ -59,6 +59,7 @@ mix_type_list([2, 3, 1, 7, 4, 12])
 mix_type_list(['magical', 'unicorns'])
 
 
+#compare_list
 def compare_list(list1, list2):
     is_same = True
     if len(list1) != len(list2):
@@ -75,6 +76,7 @@ compare_list(['celery', 'carrots', 'bread', 'milk'],
              ['celery', 'carrots', 'bread', 'cream'])
 
 
+#layered_multiplier
 def multiply(some_list, num):
     for i in range(0, len(some_list)):
         some_list[i] = some_list[i] * num
@@ -88,3 +90,16 @@ def layered_multiplier(some_list):
 
 
 print(layered_multiplier(multiply([2, 4, 5], 3)))
+
+
+#checkerbord
+def print_checkerbord():
+    line1 = ' * * * *'
+    line2 = '* * * *'
+    for i in range(0, 8):
+        if i % 2 is 0:
+            print(line1)
+        else:
+            print(line2)
+
+print_checkerbord()
