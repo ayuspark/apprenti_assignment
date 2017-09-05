@@ -4,17 +4,23 @@
         <title>Form Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <link href="{{url_for('static', filename='css/style.css')}}" type="text/css" rel="stylesheet">
     </head>
     <body>
         <form action="" method="POST">
-            <label for="name">Your Name: 
-                <input type="text" name="name">
-            </label>
-            <label for="email">Your Email: 
-                <input type="email" name="email">
-            </label>
+            <fieldset>
+                <label for="name">Cat's Name: 
+                    <input type="text" name="name">
+                </label>
+                <label for="gender">Cat's Gender: 
+                    <input type="radio" name="gender" value="girl">girl
+                    <input type="radio" name="gender" value="boy">boy
+                </label>
+                <label for="comment">Comments for Cat: 
+                    <textarea name="comment" rows="20" cols="40" placeholder="write some comments for your cats"></textarea>
+                </label>
             <input type="submit" value="SUBMIT">
+            </fieldset>
         </form>
     </body>
 </html>

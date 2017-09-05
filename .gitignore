@@ -1,3 +1,4 @@
 flask_assignments_my_env/FlaskEnv/
 flask_assignments_my_env/hello_flask/templates/
 .DS_Store
+.vscode

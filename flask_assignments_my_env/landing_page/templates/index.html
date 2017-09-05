@@ -4,10 +4,11 @@
         <title>Landing Page|index</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <link href="{{ url_for('static', filename='css/style.css')}}" type="text/CSS" rel="stylesheet">
     </head>
     <body>
         <h1>This is the landing page(index.html)</h1>
-    
+        <button><a href="{{ url_for('cats')}}">Here to Cats</a></button>
+        <button><a href="{{ url_for('form_page')}}">Go fill in a form for your cat!</a></button>
     </body>
 </html>
