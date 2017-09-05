@@ -122,3 +122,13 @@ def throw_coin_5000_times():
 
 throw_coin_5000_times()
 
+
+def draw_stuff_many_times(some_list):
+    for el in some_list:
+        if isinstance(el, (int, float)):
+            print('*')*el
+        elif isinstance(el, str):
+            print(el[0].lower())*len(el)
+
+draw_stuff_many_times([4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"])
+
