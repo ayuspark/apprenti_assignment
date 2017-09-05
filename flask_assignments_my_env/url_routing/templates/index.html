@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>URL Routing Assignment</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+        {% if opening_phrase == True %}
+        <h1>This page shows no images.</h1>
+        {% endif %}
+    
+        {% if display_all == True %}
+        {% for key in img_dict %}
+        <img src={{img_dict[key]}} alt={{key}}>
+        {% endfor %}
+        {% endif %}
+
+        {% if display_all == False %}
+            {% if color == 'red' %}
+            <img src="https://goo.gl/ZErms6" alt="red panda">
+            <p>This is a red panda</p>
+            {% elif color == 'black' %}
+            <img src="https://goo.gl/5CYrCU" alt="panda">
+            <p>This is a panda.</p>
+            {% elif color == 'brown' %}
+            <img src="https://goo.gl/ahg5Fc" alt="brown bear">
+            <p>This is a brown bear.</p>
+            {% else %}
+            <h2>404</h2>
+            {% endif %}
+        {% endif %}
+    </body>
+</html>
