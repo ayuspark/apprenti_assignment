@@ -2,11 +2,12 @@ words = "It's thanksgiving day. It's my birthday,too!"
 print(words.find('day'))
 print(words.replace('day', 'month', 2))
 
+
 print(max([2,54,-2,7,12,98]))
 
-aa = [2,54,-2,7,12,98]
-aa.sort()
-print(aa)
+
+[2,54,-2,7,12,98].sort()
+
 
 x = [19,2,54,-2,7,12,98,32,10,-3,6]
 x.sort()
@@ -21,3 +22,36 @@ for m in range(cut_length+1, len(x)):
     new_list.append(x[m])
 
 print(new_list)
+
+
+def mix_type_list(some_list):
+    set_a_type = type(some_list[0])
+    is_not_mix = True
+    strs = ''
+    sums = 0
+    output = {'mix': 'this is mixed',
+              'str': 'these are all strings',
+              'num': 'these are all numbers', }
+    for ele in some_list:
+        if type(ele) != set_a_type:
+            is_not_mix = False
+        if type(ele) == 'str':
+            strs += ele
+        elif isinstance(ele, (int, float)):
+            sums += ele
+
+    if is_not_mix is True:
+        if isinstance(some_list[0], str):
+            print(output['str'])
+        elif isinstance(some_list[0], (int, float)):
+            print(output['num'])
+    else:
+        print(output['mix'])
+    
+    print(sums)
+    print(strs)
+
+
+mix_type_list(['magical unicorns',19,'hello',98.98,'world'])
+mix_type_list([2,3,1,7,4,12])
+mix_type_list(['magical', 'unicorns'])
