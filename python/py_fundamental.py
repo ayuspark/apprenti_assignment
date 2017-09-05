@@ -132,3 +132,30 @@ def draw_stuff_many_times(some_list):
 
 draw_stuff_many_times([4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"])
 
+
+def iterating_in_dict(some_dic):
+    for group, students in some_dic.iteritems():
+        print(group.upper() + '\n' + '___________________')
+        for student in students:
+            print(student['first_name'] + ' ' + student['last_name'])
+
+users = {
+         'Students': [
+                      {'first_name': 'Michael', 'last_name': 'Jordan'},
+                      {'first_name': 'John', 'last_name': 'Rosales'},
+                      {'first_name': 'Mark', 'last_name': 'Guillen'},
+                      {'first_name': 'KB', 'last_name': 'Tonel'}
+                      ],
+        }
+
+iterating_in_dict(users)
+
+
+def two_list_to_dict(list1, list2):
+    dic = {}
+    dic = dict(zip(list1, list2))
+    return dic
+
+name = ["Anna", "Eli", "Pariece", "Brendan", "Amy", "Shane", "Oscar"]
+favorite_animal = ["horse", "cat", "spider", "giraffe", "ticks", "dolphins", "llamas"]
+print(two_list_to_dict(name, favorite_animal))
