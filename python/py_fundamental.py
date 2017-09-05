@@ -3,13 +3,14 @@ print(words.find('day'))
 print(words.replace('day', 'month', 2))
 
 
-print(max([2,54,-2,7,12,98]))
+print(max([2, 54, -2, 7, 12, 98]))
 
 
-[2,54,-2,7,12,98].sort()
+[2, 54, -2, 7, 12, 98].sort()
 
 
-x = [19,2,54,-2,7,12,98,32,10,-3,6]
+# list manipulation assignment
+x = [19, 2, 54, -2, 7, 12, 98, 32, 10, -3, 6]
 x.sort()
 cut_length = int(len(x)/2)
 print(x)
@@ -25,6 +26,7 @@ print(new_list)
 
 
 def mix_type_list(some_list):
+    # list type check
     set_a_type = type(some_list[0])
     is_not_mix = True
     strs = ''
@@ -52,6 +54,22 @@ def mix_type_list(some_list):
     print(strs)
 
 
-mix_type_list(['magical unicorns',19,'hello',98.98,'world'])
-mix_type_list([2,3,1,7,4,12])
+mix_type_list(['magical unicorns', 19, 'hello', 98.98, 'world'])
+mix_type_list([2, 3, 1, 7, 4, 12])
 mix_type_list(['magical', 'unicorns'])
+
+
+def compare_list(list1, list2):
+    is_same = True
+    if len(list1) != len(list2):
+        is_same = False
+    else:
+        for i in range(0, len(list1)):
+            if list1[i] != list2[i]:
+                is_same = False
+    print(is_same)
+    return is_same
+
+compare_list([1, 2, 5, 6, 2], [1, 2, 5, 6, 2])
+compare_list(['celery', 'carrots', 'bread', 'milk'],
+             ['celery', 'carrots', 'bread', 'cream'])
