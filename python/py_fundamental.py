@@ -73,3 +73,18 @@ def compare_list(list1, list2):
 compare_list([1, 2, 5, 6, 2], [1, 2, 5, 6, 2])
 compare_list(['celery', 'carrots', 'bread', 'milk'],
              ['celery', 'carrots', 'bread', 'cream'])
+
+
+def multiply(some_list, num):
+    for i in range(0, len(some_list)):
+        some_list[i] = some_list[i] * num
+    return some_list
+
+def layered_multiplier(some_list):
+    new_list = []
+    for i in range(0, len(some_list)):
+        new_list.append('1' * some_list[i])
+    return new_list
+
+
+print(layered_multiplier(multiply([2, 4, 5], 3)))
