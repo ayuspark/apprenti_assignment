@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>flask with AJAX</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href={{ url_for('static', filename='css/style.css') }} rel="stylesheet">
+    </head>
+    <body>
+        <div class="imgs">
+            {% if reponse == 'red' %}
+            <img src="https://goo.gl/ZErms6" alt="red panda">
+            <p>This is a red panda</p>
+            {% elif response == 'black' %}
+            <img src="https://goo.gl/5CYrCU" alt="panda">
+            <p>This is a panda.</p>
+            {% elif response == 'brown' %}
+            <img src="https://goo.gl/ahg5Fc" alt="brown bear">
+            <p>This is a brown bear.</p>
+            {% endif %}
+        </div>
+
+        <div class="btn">
+            <button id="black">Black</button>
+            <button id="red">Red</button>
+            <button id="brown">Brown</button>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src={{ url_for('static', filename='app.js') }} type="text/javascript"></script>
+    </body>
+</html>
