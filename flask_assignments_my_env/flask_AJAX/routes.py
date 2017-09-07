@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, json, jsonify, redirect
+from flask import Flask, render_template, request, url_for, json, redirect
 
 app = Flask(__name__)
 app.secret_key = '123456'
@@ -13,7 +13,6 @@ def get_img_id():
         data_posted = json.loads(request.data)['color']
         response = json.dumps(data_posted)
         print(response)
-        # return response
         return response
     
 app.run(debug=True)
