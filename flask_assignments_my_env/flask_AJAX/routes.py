@@ -1,20 +1,19 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, json, jsonify, redirect
 
 app = Flask(__name__)
+app.secret_key = '123456'
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/', methods=['GET','POST'])
-def show_img():
+@app.route('/', methods=['POST'])
+def get_img_id():
     if request.method == "POST":
-        data = json.loads(request.form.get('data'))
-        response = data['color']
-        # response = request.args
+        data_posted = json.loads(request.data)['color']
+        response = json.dumps(data_posted)
         print(response)
-        return render_template('index.html', response=response)
-    # if you are in Chrome and look at Network, click on the latest ajax call(on localhost), you can see the {'color': color} is passed, and it is under header Form Data
-    # but somehow, I used get_json(), request.data, etc and nothing works. 
-
+        # return response
+        return response
+    
 app.run(debug=True)
