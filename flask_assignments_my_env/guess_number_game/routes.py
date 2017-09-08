@@ -5,29 +5,35 @@ import random
 app = Flask(__name__)
 app.secret_key = 'realsecret'
 
+
 @app.route('/')
 def index():
-    if not 'guess_time' in session:
+    if 'guess_time' not in session:
         session['guess_time'] = 0
     return render_template('index.html')
 
 
-@app.route('/', methods=['POST'])
+@app.route('/process', methods=['POST'])
 def show_num():
     session['guess_time'] += 1
-    while (session['guess_time'] < 3):
-        if request.method == 'POST':
-            comp_guess = random.randint(1, 100)
-            data_posted = request.form['guess']
-            print('client made the guess: ', data_posted)
+    if request.method == 'POST':
+        comp_guess = random.randint(1, 100)
+        data_posted = request.form['guess_num']
+        # data_posted = json.loads(request.data)['guess']
+        print('client made the guess: ', data_posted)
+        print('comp guess:', comp_guess)
+        if session['guess_time'] < 10:
             if comp_guess == int(data_posted):
                 response = 'Bingo'
             elif comp_guess > int(data_posted):
                 response = 'Too low'
             else:
                 response = 'Too high'
-    response = 'Out of guesses!'
-    response = json.dumps(response)
+        else:
+            response = 'Out of guesses!'
+            session['guess_time'] = 0
+    
+    print(response)
     return response
 
 app.run(debug=True)
