@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, flash
+import re
 
 app = Flask(__name__)
-app.secret_key = '123456'
+app.secret_key = 'realsecret'
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
 @app.route('/')
@@ -11,18 +13,27 @@ def index():
 
 @app.route('/users', methods=['POST'])
 def create_user():
-    print 'Got post info'
-    session['name'] = request.form['name']
-    session['email'] = request.form['email']
-    print request.form
-    return redirect('/show')
+    if (len(request.form['email']) < 1) or (len(request.form['name']) < 1) or (len(request.form['comment']) > 10):
+        flash('YOU HAVE FIELDS MISSING!')
+        return redirect('/')
+    else:
+        if not EMAIL_REGEX.match(request.form['email']):
+            flash('INVALID EMAIL ADDRESS')
+            return redirect('/')
+        else:
+            session['name'] = request.form['name']
+            session['email'] = request.form['email']
+            session['comment'] = request.form['comment']
+            print request.form
+            return redirect('/show')
 
 
 @app.route('/show')
 def show():
     return render_template('user.html',
                            name=session['name'],
-                           email=session['email'])
+                           email=session['email'],
+                           comment=session['comment'])
 
 
 app.run(debug=True)

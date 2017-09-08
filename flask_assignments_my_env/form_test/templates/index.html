@@ -4,17 +4,26 @@
         <title>Form Test Index</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <h2>Create a User</h2>
+        {% with messages=get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
         <form action="/users" method='post'>
             <label for="name">
                 Name: <input type="text" name="name">
-            </label>
+            </label><br />
             <label for="email">
-                Email: <input type="email" name="email">
-            </label>
+                Email: <input type="text" name="email">
+            </label><br />
+            <label for="comment">
+                <textarea name="comment" cols="100" rows="10"></textarea>
+            </label><br />
             <input type="submit" value="Create User">
         </form>
     
