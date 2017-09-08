@@ -22,6 +22,7 @@ $(function () {
             dataType: 'json',
             data: JSON.stringify(data),
             success: function (result) {
+                // console.log(result)
                 console.log('result is', result);
                 $('.imgs').empty().append('<img src=\'' + pick_src(result) + '\'/ >')
             }
