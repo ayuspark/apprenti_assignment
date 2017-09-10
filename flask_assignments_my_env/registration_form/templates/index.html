@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Registration Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        label {
+            display: block;
+        }
+    </style>
+    <body>
+        <form action="/form" method="POST">
+            <label for="name">Your Name: <br>
+                <input type="text" name="name" value="{{ name }}">
+            </label>
+            <label for="email">Email: <br>
+                <input type="email" name="email" value="{{ email }}">
+            </label>
+            <label for="password">Password: <br>
+                <input type="password" name="password" value="{{ password }}">
+            </label>
+            <label for="confirm_pass">Confirm Password: <br>
+                <input type="password" name="confirm_pass">
+            </label>
+            <input type="submit" name="submit" value="SUBMIT">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class=flashes>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </form>
+        
+    </body>
+</html>

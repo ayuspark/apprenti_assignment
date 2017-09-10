@@ -6,7 +6,10 @@ app.secret_key = 'realsecret'
 
 @app.route('/')
 def index():
-    session['counts'] += 1
+    if 'counts' not in session:
+        session['counts'] = 0
+    else:
+        session['counts'] += 1
     print('this is session' + str(session['counts']))
     return render_template('index.html', counts=session['counts'])
 
