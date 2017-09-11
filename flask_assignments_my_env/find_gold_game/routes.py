@@ -12,7 +12,9 @@ def index():
     if 'gold_amount' not in session or 'msg' not in session:
         session['gold_amount'] = 0
         session['msg'] = []
-    return render_template('index.html', gold_amount=session['gold_amount'], msgs=session['msg'])
+    return render_template('index.html', 
+                           gold_amount=session['gold_amount'],
+                           msgs=session['msg'])
 
 
 @app.route('/process', methods=['POST'])
@@ -26,8 +28,7 @@ def get_gold():
     if request.method == 'POST':
         session['building'] = request.form.get('building')
         session['gold_amount'] += gold_dict[session['building']]
-        msg = 'Entered a ' + request.form.get('building') + ' and got ' + str(
-            gold_dict[session['building']]) + ' golds. ' + str(datetime.now())[:19]
+        msg = 'Entered a ' + request.form.get('building') + ' and got ' + str(gold_dict[session['building']]) + ' golds. ' + str(datetime.now())[:19]
         session['msg'].append(msg)
     return redirect(url_for('index'))
 
