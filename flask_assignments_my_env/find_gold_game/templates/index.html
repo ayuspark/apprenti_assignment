@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Find Gold Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        form {
+            display: inline-block;
+            border: 2px solid blue;
+            margin: 2rem;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <h3>Your Gold: <span class="gold_amount">{{ gold_amount }}</span></h3>
+        <form action="/process" method="post"> Farm <br>
+            (earns 10-20 golds) <br>
+            <input type="hidden" name="building" value="farm">
+            <input type="submit" value="Find Gold">
+        </form>
+
+        <form action="/process" method="post"> Cave <br>
+            (earns 5-10 golds) <br>
+            <input type="hidden" name="building" value="cave">
+            <input type="submit" value="Find Gold">
+        </form>
+
+        <form action="/process" method="post"> House <br>
+            (earns 2-5 golds) <br>
+            <input type="hidden" name="building" value="house">
+            <input type="submit" value="Find Gold">
+        </form>
+
+        <form action="/process" method="post"> Casino <br>
+            (earns 0-50 golds) <br>
+            <input type="hidden" name="building" value="casino">
+            <input type="submit" value="Find Gold">
+        </form>
+
+        <h3>Activities</h3>
+        <div class="activities">
+            {% for msg in msgs %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>
