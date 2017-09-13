@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>sql_flask_Friend</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        label {
+            display: block;
+        }
+
+        .friend{
+            display: inline-block;
+            padding: 0 2rem;
+        }
+
+        tr:nth-of-type(2n){
+            background-color: skyblue;
+        }
+    </style>
+    <body>
+        <!-- {{ friends }} -->
+        <h1>Friends Table</h1>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Occupation</th>
+                <th>Friend Since</th>
+            </thead>
+            {% for friend in friends %}
+                <tr>
+                    <td>{{ friend['first_name'] + " " + friend['last_name'] }}</td>
+                    <td>{{ friend['occupation'] }}</td>
+                    <td>{{ friend_since }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+           
+
+        <h1>Add a Friend</h1>
+        <form action='/friends' method='POST'>
+            <label for="first_name">First Name: 
+                <input type="text" name="first_name" id="first_name">
+            </label>
+            <label for="last_name">Last Name: 
+                <input type="text" name="last_name">
+            </label>
+            <label for="occupation">Occupation: 
+                <input type="text" name="occupation">
+            </label>
+            <label for="friend_since">Friend Since: 
+                <input type="date" name="friend_since" >
+            </label>
+            <input type="submit" value="Add">
+        </form>
+    
+    
+    </body>
+</html>
