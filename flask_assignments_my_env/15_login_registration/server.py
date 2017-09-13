@@ -6,6 +6,10 @@ from flask_wtf import FlaskForm
 
 from flask_bootstrap import Bootstrap
 
+import md5
+import os
+import binascii
+
 from mysqlconnection import MySQLConnector
 from datetime import datetime, date
 
@@ -58,16 +62,20 @@ def index():
                 if result:
                         flash('You have an account, please log in')
                 else:
+                        form_pwd = form.psw.data
+                        salt = binascii.b2a_hex(os.urandom(15))
+                        hashed_pwd = md5.new(form_pwd + salt).hexdigest()
                         query = """
                                 INSERT INTO users
-                                (fname, lname, email, psw)
-                                VALUES(:fname, :lname, :email, :psw)
+                                (fname, lname, email, psw, salt)
+                                VALUES(:fname, :lname, :email, :psw, :salt)
                                 """
                         data = {
                                 'fname': form.fname.data,
                                 'lname': form.lname.data,
                                 'email': form.email.data,
-                                'psw': form.psw.data,
+                                'psw': hashed_pwd,
+                                'salt': salt,
                                 }
                         mysql.query_db(query, data)
                         flash('Success!')
@@ -79,51 +87,31 @@ def index():
 def login():
         form = LoginForm()
         if 'email' not in session:
-                session.pop('_flashes')
                 session['email'] = ''
         elif session['email'] != '':
                 print(session['email'])
                 flash('You are logged in! Your email is: %s' % (session['email']))
         if form.validate_on_submit():
-                query = "SELECT id, psw, email FROM users WHERE email=:form_email"
+                query = "SELECT * FROM users WHERE email=:form_email"
                 data = {
                         'form_email': form.email.data
                         }
                 result = mysql.query_db(query, data)
                 print(result)
-                if result and result[0]['psw'] == form.psw.data:
-                        session['email'] = form.email.data
-                        print(session['email'])
-                        print('email: ', result[0]['email'])
-                        flash('Success!')
+                if result:
+                        form_pwd = form.psw.data
+                        salt = result[0]['salt']
+                        hashed_pwd = md5.new(form_pwd + salt).hexdigest()
+                        if result[0]['psw'] == hashed_pwd:
+                                session['email'] = form.email.data
+                                print(session['email'])
+                                print('email: ', result[0]['email'])
+                                flash('Success!')
+                        else:
+                                flash('Somgthing is fishy...')
                 else:
-                        flash('Somgthing is fishy...')
+                        flash("Your account doesn't exist!")
         return render_template('login.html', form=form)
-
-
-
-
-#     query = 'SELECT * from friends'
-#     friends = mysql.query_db(query)
-#     return render_template('index.html', 
-#                            friends=friends,
-#                            friend_since=datetime.now().date())
-
-# @app.route('/friends', methods=['POST'])
-# def create():
-#     query = """
-#             INSERT INTO friends
-#             (first_name, last_name, occupation, created_at, updated_at)
-#             VALUES(:first_name, :last_name, :occupation, :friend_since, NOW())
-#             """
-#     data = {
-#             'first_name': request.form.get('first_name'),
-#             'last_name': request.form.get('last_name'),
-#             'occupation': request.form.get('occupation'),
-#             'friend_since': request.form.get('friend_since')
-#             }
-#     mysql.query_db(query, data)
-#     return redirect('/')
 
 
 app.run(debug=True)
