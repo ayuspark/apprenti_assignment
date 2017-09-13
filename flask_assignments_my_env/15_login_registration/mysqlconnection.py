@@ -17,8 +17,8 @@ class MySQLConnection(object):
         app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
         # establish the connection to database
         self.db = SQLAlchemy(app)
-   
     # this is the method we will use to query the database
+
     def query_db(self, query, data=None):
         result = self.db.session.execute(text(query), data)
         if query[0:6].lower() == 'select':
