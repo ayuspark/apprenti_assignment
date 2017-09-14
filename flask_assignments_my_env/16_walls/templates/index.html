@@ -13,6 +13,11 @@
             <span>  {{ result['created_at'] }}</span>
             <p>{{ result['msg'] }}</p>
             {{ wtf.quick_form(comment_form)}}
+            <form action="/delete" method="POST">
+                <input type="hidden" name="msg_id" value="{{ result['msg_id'] }}">
+                <input type="hidden" name="user_id" value="{{ result['user_id'] }}">
+                <input type="submit" name="submit" value="Delete">
+            </form>
         </div>
     {% endfor %}
 {% endblock %}
