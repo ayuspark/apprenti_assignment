@@ -216,12 +216,6 @@ def register():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
         form = LoginForm()
-        if 'email' not in session:
-                session['email'] = ''
-                session['user_id'] = 0
-        elif session['email'] != '':
-                # print('session: ', session['email'])
-                flash('You are logged in! Your email is: %s' % (session['email']))
         if form.validate_on_submit():
                 query = "SELECT * FROM users WHERE email=:form_email"
                 data = {
@@ -244,6 +238,12 @@ def login():
                                 flash('Somgthing is fishy...')
                 else:
                         flash("Your account doesn't exist!")
+        if 'email' not in session:
+                session['email'] = ''
+                session['user_id'] = 0
+        elif session['email'] != '':
+                # print('session: ', session['email'])
+                flash('You are logged in! Your email is: %s' % (session['email']))
         return render_template('login.html', form=form)
 
 
