@@ -1,0 +1,55 @@
+/* main {
+    width: 80%;
+} */
+
+* {
+    color: red;
+}
+
+section {
+    border: 1px solid lightblue;
+}
+
+.main_container {
+    width: 85%;
+}
+
+#msg_post_form {
+    height: 4rem;
+    font-size: 1.3rem;
+}
+/* _______message block style______ */
+.msg_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.msg_block h4 {
+    font-size: 1rem;
+}
+
+.msg_block p {
+    font-size: 1.4rem;
+}
+
+.col-md-8 span {
+    font-size: 0.9rem;
+    color: lightslategray;
+}
+
+.btn_float_right {
+    float: right;
+    clear: right;
+    margin-left: 2rem;
+}
+
+/* _______comment block style_______ */
+.comment_block {
+    width: 60%;
+}
+
+.comment_form {
+    width: 90%;
+}
+
+

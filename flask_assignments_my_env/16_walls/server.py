@@ -75,22 +75,36 @@ class LoginForm(FlaskForm):
 @app.route('/', methods=['GET', 'POST'])
 def index():
         msg_form = PostForm()
+        if 'name' not in session:
+                session['name'] = ''
         #to display all messages
         query = """SELECT CONCAT_WS(' ', users.fname, users.lname) AS name,
-                messages.msg, DATE_FORMAT(messages.created_at, \"%M %D %Y %T\") AS created_at, messages.id AS msg_id, users.id AS user_id
+                messages.msg, 
+                DATE_FORMAT(messages.created_at, \"%M %D %Y %T\") AS created_at, 
+                messages.id AS msg_id, 
+                users.id AS user_id
                 FROM messages
                 JOIN users ON messages.user_id = users.id
                 ORDER BY messages.created_at DESC
                 """
         post_results = mysql.query_db(query)
 
-        query = "SELECT CONCAT_WS(' ', users.fname, users.lname) AS name, comments.comment AS comment, DATE_FORMAT(comments.created_at, \"%M %D %T\") AS created_at, comments.id, users.id AS user_id, comments.message_id FROM comments JOIN messages ON comments.message_id = messages.id JOIN users ON comments.user_id = users.id ORDER BY comments.created_at DESC"
+        query = """SELECT CONCAT_WS(' ', users.fname, users.lname) AS name, 
+                comments.comment AS comment, 
+                DATE_FORMAT(comments.created_at, \"%M %D %T\") AS created_at, 
+                comments.id, users.id AS user_id, 
+                comments.message_id 
+                FROM comments JOIN messages 
+                ON comments.message_id = messages.id 
+                JOIN users ON comments.user_id = users.id ORDER BY comments.created_at DESC
+                """
         comment_results = mysql.query_db(query)
-        print('result: ', comment_results)
+        
         return render_template('index.html',
                                msg_form=msg_form,
                                post_results=post_results,
-                               comment_results=comment_results)
+                               comment_results=comment_results,
+                               name=session['name'])
 
 @app.route('/post', methods=['POST'])
 def post_msg():
@@ -123,7 +137,7 @@ def post_comment():
                                 'current_msg_id': request.form['msg_id_for_comment'],
                                 }
                         mysql.query_db(query, data)
-                        print(mysql.query_db(query, data))
+                        # print(mysql.query_db(query, data))
         return redirect(url_for('index'))
 
         
@@ -159,6 +173,7 @@ def register():
         if 'email' not in session:
                 session['email'] = ''
                 session['user_id'] = 0
+                session['name'] = ''
         if form.validate_on_submit():
                 query = "SELECT * FROM users WHERE email=:form_email"
                 data = {
@@ -193,6 +208,7 @@ def register():
                 result = mysql.query_db(query, data)
                 session['email'] = form.email.data
                 session['user_id'] = result[0]['id']
+                session['name'] = form.fname.data
                 return redirect(url_for('index'))
         return render_template('register.html', form=form)
 
@@ -204,7 +220,7 @@ def login():
                 session['email'] = ''
                 session['user_id'] = 0
         elif session['email'] != '':
-                print('session: ', session['email'])
+                # print('session: ', session['email'])
                 flash('You are logged in! Your email is: %s' % (session['email']))
         if form.validate_on_submit():
                 query = "SELECT * FROM users WHERE email=:form_email"
@@ -212,7 +228,7 @@ def login():
                         'form_email': form.email.data
                         }
                 result = mysql.query_db(query, data)
-                print(result)
+                # print(result)
                 if result:
                         form_pwd = form.psw.data
                         salt = result[0]['salt']
@@ -220,8 +236,9 @@ def login():
                         if result[0]['psw'] == hashed_pwd:
                                 session['email'] = form.email.data
                                 session['user_id'] = result[0]['id']
-                                print(session['email'])
-                                print('email: ', result[0]['email'])
+                                session['name'] = result[0]['fname'].title()
+                                # print(session['email'])
+                                # print('email: ', result[0]['email'])
                                 flash('Success!')
                         else:
                                 flash('Somgthing is fishy...')
