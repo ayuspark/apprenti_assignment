@@ -3,35 +3,36 @@
 
 {% block title %}Walls{% endblock %} 
 
+
 {% block page_content %}
     {% if not name %}
         <h2>Hi!</h2>
     {% else %}
         <h2>Hi, {{name}}!</h2>
     {% endif %}
-
-    {{ wtf.quick_form(msg_form, action="/post", id="msg_post_form") }} 
-    
+    <div class="form_div">
+        {{ wtf.quick_form(msg_form, action="/post", id="msg_post_form") }} 
+   </div>
     {% for post_result in post_results %}
     <section>
         <div class="row msg_block">
-            <div class="col-md-8">
+            <div class="left">
                 <h4>{{ post_result['name'] }}</h4>
                 <span>  {{ post_result['created_at'] }}</span>
                 <p>{{ post_result['msg'] }}</p>
             </div>
             <!-- post delete button -->
-            <form action="/delete" method="POST">
+            <form class="delete_form" action="/delete" method="POST">
                 <input type="hidden" name="msg_id" value="{{ post_result['msg_id'] }}">
                 <input type="hidden" name="user_id" value="{{ post_result['user_id'] }}">
-                <input type="submit" name="submit" value="Delete" class="btn btn-default btn_float_right">
+                <input type="submit" name="submit" value="Delete" class="btn btn-default">
             </form>
         </div>
 
         <div class="comment_block">
             {% for comment_result in comment_results %}
                 {% if post_result['msg_id'] == comment_result['message_id'] %}
-                    <div>
+                    <div class="each_comment">
                         <h5>{{ comment_result['name'] }}</h5>
                         <span>{{ comment_result['created_at'] }}</span>
                         <p>{{ comment_result['comment'] }}</p>
