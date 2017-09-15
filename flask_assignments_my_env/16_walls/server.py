@@ -91,12 +91,12 @@ def index():
 
         query = """SELECT CONCAT_WS(' ', users.fname, users.lname) AS name, 
                 comments.comment AS comment, 
-                DATE_FORMAT(comments.created_at, \"%M %D %T\") AS created_at, 
+                DATE_FORMAT(comments.created_at, \"%M %D %Y %T\") AS created_at, 
                 comments.id, users.id AS user_id, 
                 comments.message_id 
                 FROM comments JOIN messages 
                 ON comments.message_id = messages.id 
-                JOIN users ON comments.user_id = users.id ORDER BY comments.created_at DESC
+                JOIN users ON comments.user_id = users.id ORDER BY comments.created_at ASC
                 """
         comment_results = mysql.query_db(query)
         
