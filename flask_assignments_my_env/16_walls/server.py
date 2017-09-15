@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request, url_for, flash, session
 
-from wtforms import StringField, SubmitField, PasswordField, validators, TextAreaField
+from wtforms import StringField, SubmitField, PasswordField, validators, TextAreaField, HiddenField
 from wtforms.validators import Required
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
@@ -32,11 +32,12 @@ class PostForm(FlaskForm):
         submit = SubmitField('Post')
 
 
-class CommentForm(FlaskForm):
-        comment = TextAreaField('Comment',
-                                [validators.DataRequired(),
-                                 validators.Length(max=140, message='max 140 characters')])
-        submit = SubmitField('Comment')
+# class CommentForm(FlaskForm):
+#         comment = TextAreaField('Comment',
+#                                 [validators.DataRequired(),
+#                                  validators.Length(max=140, message='max 140 characters')])
+#         hidden_msg_id = HiddenField('msg_id', default=msg_id)
+#         submit = SubmitField('Comment')
 
 
 class RegisterForm(FlaskForm):
@@ -73,8 +74,7 @@ class LoginForm(FlaskForm):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-        # msg_form = PostForm()
-        # comment_form = CommentForm()
+        msg_form = PostForm()
         #to display all messages
         query = """SELECT CONCAT_WS(' ', users.fname, users.lname) AS name,
                 messages.msg, DATE_FORMAT(messages.created_at, \"%M %D %Y %T\") AS created_at, messages.id AS msg_id, users.id AS user_id
@@ -82,15 +82,19 @@ def index():
                 JOIN users ON messages.user_id = users.id
                 ORDER BY messages.created_at DESC
                 """
-        results = mysql.query_db(query)
-        # print('result: ', results)
+        post_results = mysql.query_db(query)
+
+        query = "SELECT CONCAT_WS(' ', users.fname, users.lname) AS name, comments.comment AS comment, DATE_FORMAT(comments.created_at, \"%M %D %T\") AS created_at, comments.id, users.id AS user_id, comments.message_id FROM comments JOIN messages ON comments.message_id = messages.id JOIN users ON comments.user_id = users.id ORDER BY comments.created_at DESC"
+        comment_results = mysql.query_db(query)
+        print('result: ', comment_results)
         return render_template('index.html',
-                        #        msg_form=msg_form,
-                        #        comment_form=comment_form,
-                               results=results)
+                               msg_form=msg_form,
+                               post_results=post_results,
+                               comment_results=comment_results)
 
 @app.route('/post', methods=['POST'])
 def post_msg():
+        msg_form = PostForm()
         if 'email' in session:
                 if msg_form.validate_on_submit():
                         query = "INSERT INTO messages (msg, user_id, created_at, updated_at) VALUE(:form_msg, :session_user_id, NOW(), NOW())"
@@ -102,10 +106,26 @@ def post_msg():
                         return redirect(url_for('index'))
         else:
                 flash('Please register or log in!')
-                return redirect(url_for('index'))
-        return render_template('msg_form.html',
-                               msg_form=msg_form,
-                               comment_form=comment_form,)
+        return redirect(url_for('index'))
+
+
+@app.route('/comment', methods=['POST'])
+@csrf.exempt
+def post_comment():
+        if 'email' not in session or session['email'] == '':
+                flash('Please log in or register first!')
+        else:
+                if request.method == 'POST':
+                        query = "INSERT INTO comments (comment, user_id, message_id, created_at, updated_at) VALUE(:form_comment, :session_user_id, :current_msg_id, NOW(), NOW())"
+                        data = {
+                                'form_comment': request.form['comment'],
+                                'session_user_id': session['user_id'],
+                                'current_msg_id': request.form['msg_id_for_comment'],
+                                }
+                        mysql.query_db(query, data)
+                        print(mysql.query_db(query, data))
+        return redirect(url_for('index'))
+
         
 
 @app.route('/delete', methods=['POST', 'GET'])
@@ -117,15 +137,20 @@ def delete_msg():
                 if request.method == 'POST':
                         if str(session['user_id']) == request.form['user_id']:
                                 msg_id_to_delete = request.form['msg_id']
-                                query = "DELETE FROM messages WHERE id=:msg_id"
                                 data = {
                                         'msg_id': msg_id_to_delete
                                         }
+                                # delete comments first, to release foreign_key constraints
+                                query = "DELETE FROM comments WHERE message_id=:msg_id"
+                                mysql.query_db(query, data)
+                                # then delete messages
+                                query = "DELETE FROM messages WHERE id=:msg_id"
                                 mysql.query_db(query, data)
                                 flash('Post deleted!')
                         else:
                                 flash('You can only delete your own posts!')
-                return redirect(url_for('index'))
+        return redirect(url_for('index'))
+        # return render_template('index.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
