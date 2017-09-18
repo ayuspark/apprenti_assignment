@@ -10,8 +10,12 @@
     <body>
         <h1>The current time is:</h1>
         <h1>{{time}}</h1>    
-        <button><a href="/time_display/rand_str">Go to the Rand_str Page</a></button>
+        <button><a href="/time_display/rand_str">Go see Rand_str</a></button>
         {% block rand_str %}
+        {% endblock %}
+        <hr>
+        <button><a href="/time_display/session_words">Go See Session_words</a></button>
+        {% block session_words %}
         {% endblock %}
     </body>
 </html>

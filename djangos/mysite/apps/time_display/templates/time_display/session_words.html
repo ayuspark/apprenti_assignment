@@ -1,0 +1,30 @@
+{% extends "time_display/index.html" %}
+{% block session_words %}
+<div>
+    <button><a href="/time_display/session_words/clear">Clear Session</a></button>
+</div>
+<div>
+    <form action="/time_display/session_words/add_word" method="POST">
+         {% csrf_token %}
+        <label for="add_word"> Add a new word: <br>
+            <input type="text" name="add_word">
+        </label>
+        <label for="color">Choose a color: <br>
+            <input type="radio" name="color" value='red' checked>Red <br>
+            <input type="radio" name="color" value="green">Green <br>
+            <input type="radio" name="color" value="blue">Blue <br>
+        </label>
+        <label for="font_size">Big font? <br>
+            <input type="checkbox" name="font_size" value="big">
+        </label>
+        <input type="submit" name="add" value="Add to Session">
+    </form>
+    <section>
+        {% for each_entry in request.session.words %}
+            <ul>
+                <li class="{{ each_entry.color }} {{ each_entry.font_size }}">{{ each_entry.word }}<span> {{ each_entry.time }}</span></li>
+            </ul>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
