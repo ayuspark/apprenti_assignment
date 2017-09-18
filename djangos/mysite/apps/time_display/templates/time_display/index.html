@@ -4,10 +4,14 @@
         <title>Display Time</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        {% load static %}
+        <link href="{% static 'time_display/css/my_style.css' %}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <h1>The current time is:</h1>
-        <h1>{{context.time}}</h1>    
+        <h1>{{time}}</h1>    
+        <button><a href="/time_display/rand_str">Go to the Rand_str Page</a></button>
+        {% block rand_str %}
+        {% endblock %}
     </body>
 </html>
