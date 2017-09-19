@@ -1,3 +1,23 @@
 h1 {
     color: skyblue;
 }
+
+label {
+    display: block;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
+
+.big {
+    font-size: 2rem;
+}

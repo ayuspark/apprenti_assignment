@@ -66,7 +66,7 @@ def index():
 @app.route('/post', methods=['POST'])
 def post_msg():
         msg_form = PostForm()
-        if 'email' in session:
+        if 'user_id' in session:
                 if msg_form.validate_on_submit():
                         query = "INSERT INTO messages (msg, user_id, created_at, updated_at) VALUE(:form_msg, :session_user_id, NOW(), NOW())"
                         data = {
