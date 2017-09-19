@@ -9,7 +9,10 @@
     </head>
     <body>
         <h1>The current time is:</h1>
-        <h1>{{time}}</h1>    
+        {% load tz %}
+        {% localtime on %}
+        <h1>{{ time }}</h1>
+        {% endlocaltime %}
         <button><a href="/time_display/rand_str">Go see Rand_str</a></button>
         {% block rand_str %}
         {% endblock %}
@@ -17,5 +20,10 @@
         <button><a href="/time_display/session_words">Go See Session_words</a></button>
         {% block session_words %}
         {% endblock %}
+
+        <h2>Display school_student</h2>
+        {% for ea in all_students %}
+        <p>{{ ea.fname }} {{ ea.lname}} is at {{ ea.school.name }}</p>
+        {% endfor %}
     </body>
 </html>

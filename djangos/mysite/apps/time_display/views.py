@@ -1,20 +1,24 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from time import strftime, localtime, gmtime
 from django.shortcuts import render, redirect
-from time import gmtime, strftime
 from django.utils.crypto import get_random_string
+
+from .models import School, Student
 
 
 # Create your views here.
 def index(request):
+    # display time view
     context = {
-        'time': strftime('%Y-%m-%d %H:%M %p', gmtime())
+        'time': strftime('%Y-%m-%d %H:%M %p', localtime())
     }
     return render(request, 'time_display/index.html', context)
 
 
 def rand_str(request):
+    # rand_str view
     if 'str_count' not in request.session:
         request.session['str_count'] = 0
     else:
@@ -27,6 +31,7 @@ def rand_str(request):
 
 
 def session_words(request):
+    # index page for session_words
     if 'words' not in request.session:
         request.session['words'] = []
 
@@ -34,9 +39,10 @@ def session_words(request):
 
 
 def add_word(request):
+    # add words to session_words
     if request.method == 'POST':
         word = request.POST['add_word']
-        time = strftime('%Y-%m-%d %H:%M %p', gmtime())
+        time = strftime('%Y-%m-%d %H:%M %p', localtime())
         color = request.POST['color']
         font_size = request.POST.get('font_size', False)
 
@@ -53,5 +59,14 @@ def add_word(request):
 
 
 def clear(request):
+    # clear session['words']
     request.session.pop('words')
     return redirect('/time_display/session_words')
+
+
+def school_student(request):
+    context = {
+        'all_students': Student.objects.all(),
+        'all_schools': School.objects.all(),
+    }
+    return render(request, 'time_display/index.html', context)

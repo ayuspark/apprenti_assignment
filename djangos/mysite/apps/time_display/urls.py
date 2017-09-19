@@ -7,4 +7,5 @@ urlpatterns = [
         url(r'^session_words$', views.session_words),
         url(r'^session_words/add_word$', views.add_word),
         url(r'^session_words/clear$', views.clear),
+        url(r'^school_student$', views.school_student),
     ]

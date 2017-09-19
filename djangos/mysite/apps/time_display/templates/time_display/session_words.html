@@ -7,7 +7,7 @@
     <form action="/time_display/session_words/add_word" method="POST">
          {% csrf_token %}
         <label for="add_word"> Add a new word: <br>
-            <input type="text" name="add_word">
+            <input type="text" name="add_word" required>
         </label>
         <label for="color">Choose a color: <br>
             <input type="radio" name="color" value='red' checked>Red <br>
