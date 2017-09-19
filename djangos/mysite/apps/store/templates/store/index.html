@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Store</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+        <h2>Welcome to the store!</h2>
+        <table>
+            <thead>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </thead>
+            {% for ea in store %}
+            <tr>
+                <td>{{ ea.name }}</td>
+                <td>{{ ea.price }}</td>
+                <td>
+                    <form action="/store/process" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="items" id="{{ ea.name }}" value={{ ea.price }}>
+                    <select name="quantity">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                    </select>
+                    <input type="submit" name="buy" value="Buy">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Checkout</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+        <h3>Thank you for your business!</h3>
+        <p>Your credit card was charged for ${{ request.session.items_price }}</p>
+        <br>
+        <p>You have ordered {{ request.session.total_quantity }} itmes so far and spent ${{ request.session.total_price }} with our Cups&amp;Cups store.</p>
+        <button><a href="/store">Back to Store</a></button>
+
+    
+    </body>
+</html>

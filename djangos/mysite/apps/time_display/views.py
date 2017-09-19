@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from time import gmtime, strftime
 from django.utils.crypto import get_random_string
 
