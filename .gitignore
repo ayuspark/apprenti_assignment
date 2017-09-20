@@ -5,3 +5,4 @@ djangos/django_venv
 .vscode
 *.pyc
 instance/
+db.sqlite3
