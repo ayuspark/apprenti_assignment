@@ -5,7 +5,7 @@ from time import strftime, localtime, gmtime
 from django.shortcuts import render, redirect
 from django.utils.crypto import get_random_string
 
-from .models import School, Student
+from .models import *
 
 
 # Create your views here.
