@@ -42,7 +42,7 @@ namespace first_c_
         {
             foreach (int element in arr)
             {
-                System.Console.WriteLine("this is the element right now is {0} ", element);
+                System.Console.WriteLine("the element right now is {0} ", element);
             }
         }
 
@@ -171,26 +171,49 @@ namespace first_c_
             return result.ToArray();
         }
 
+        //Multiplication table
+        public static int[,] multiTable()
+        {
+            int[,] tableArray = new int[10, 10];
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    tableArray[i, j] = (i + 1) * (j + 1);
+                }
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Console.Write(tableArray[i, j] + " ");
+                }
+                Console.WriteLine(" ");
+            }
+            return tableArray;
+        }
+
 
 
 
 
         static void Main(string[] args)
         {
-            // print1_255();
-            // printOdd();
-            // printSum();
-            int[] arr = { 0, -1, 1, 2, 3, 4, 5, -99 };
-            // iteratingThruArray(arr);
-            // findMax(arr);
-            // getAvg(arr);
-            // arrWithOdd();
-            int y = 4;
-            // greaterThanY(arr, y);
-            // squareArrVals(arr);
-            // noNeg(arr);
-            // weirdShift(arr);
-            numToStr(arr);
+            //print1_255();
+            //printOdd();
+            //printSum();
+            //int[] arr = { 0, -1, 1, 2, 3, 4, 5, -99 };
+            //iteratingThruArray(arr);
+            //findMax(arr);
+            //getAvg(arr);
+            //arrWithOdd();
+            //int y = 4;
+            //greaterThanY(arr, y);
+            //squareArrVals(arr);
+            //noNeg(arr);
+            //weirdShift(arr);
+            //numToStr(arr);
+            multiTable();
 
         }
     }
