@@ -1,8 +1,0 @@
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/bin/Debug/netcoreapp1.1/first_c#.deps.json
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/bin/Debug/netcoreapp1.1/first_c#.runtimeconfig.json
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/bin/Debug/netcoreapp1.1/first_c#.runtimeconfig.dev.json
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/bin/Debug/netcoreapp1.1/first_c#.dll
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/bin/Debug/netcoreapp1.1/first_c#.pdb
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/obj/Debug/netcoreapp1.1/first_c#.AssemblyInfo.cs
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/obj/Debug/netcoreapp1.1/first_c#.dll
-/Users/Lola/Scripts/apprenti/apprenti_assignment/dotnet_c#/first_c#/obj/Debug/netcoreapp1.1/first_c#.pdb
