@@ -3,6 +3,36 @@ using System.Collections.Generic;
 
 namespace first_c_
 {
+    class Human
+    {
+        public string Name { get; set; }
+        public int Intelligence { get; private set; }
+        public int Dexterity { get; set; }
+        public int Strength { get; set; }
+        public int Health { get; set; }
+
+        public Human(string name, int intelligence=3, int strength=3, int health=100, int dexterity=3){
+            Name = name;
+            Intelligence = intelligence;
+            Dexterity = dexterity;
+            Strength = strength;
+            Health = health;
+        }
+
+        public void Attack(Human human){
+            human.Health -= Strength * 5;
+        }
+
+        public void ShowStatus(){
+            Console.WriteLine($"name: {this.Name}");
+            Console.WriteLine($"health: {this.Health}");
+            Console.WriteLine($"intelli: {this.Intelligence}");
+            Console.WriteLine($"dext: {this.Dexterity}");
+            Console.WriteLine($"strength: {Strength}");
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
+        }
+    }
+
     class Program
     {
         // print 1-255
@@ -172,20 +202,15 @@ namespace first_c_
         }
 
         //Multiplication table
-        public static int[,] multiTable()
-        {
+        public static int[,] multiTable() {
             int[,] tableArray = new int[10, 10];
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
                     tableArray[i, j] = (i + 1) * (j + 1);
                 }
             }
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
                     Console.Write(tableArray[i, j] + " ");
                 }
                 Console.WriteLine(" ");
@@ -193,6 +218,16 @@ namespace first_c_
             return tableArray;
         }
 
+        // ramdom array
+        public static int[] randomArr() {
+            Random rand = new Random();
+            int[] randArr = new int[10];
+            for (int i = 0; i < 10; i++){
+                randArr[i] = rand.Next(5, 25);
+                Console.WriteLine(randArr[i]);
+            }
+            return randArr;
+        }
 
 
 
@@ -213,7 +248,14 @@ namespace first_c_
             //noNeg(arr);
             //weirdShift(arr);
             //numToStr(arr);
-            multiTable();
+            //multiTable();
+            //randomArr();
+            Human lola = new Human("lola", intelligence: 50);
+            Human maki = new Human("maki");
+            lola.ShowStatus();
+            maki.ShowStatus();
+            lola.Attack(maki);
+            maki.ShowStatus();
 
         }
     }
