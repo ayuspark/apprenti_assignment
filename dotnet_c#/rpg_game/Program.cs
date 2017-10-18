@@ -61,7 +61,7 @@ namespace rpg_game
             Random randInt = new Random();
             int attack = randInt.Next(20, 51);
             obj.Health -= attack;
-            Console.WriteLine($"********** a fireball attacked {obj.Name}, {obj.Health} dropped {attack}!");
+            Console.WriteLine($"********** a fireball attacked {obj.Name}, health: {obj.Health}, dropped {attack}!");
         }
     }
 
