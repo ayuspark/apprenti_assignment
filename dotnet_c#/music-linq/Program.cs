@@ -63,8 +63,6 @@ namespace ConsoleApplication
             foreach (var el in query7) {
                 Console.WriteLine(el.art);
             }
-
-            Console.WriteLine(Groups[0].Members[0].ArtistName);
         }
     }
 }
