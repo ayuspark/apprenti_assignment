@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using sandbox_asp.Models;
+using asp_sandbox.Models;
 
-namespace sandbox_asp.Controllers
+namespace asp_sandbox.Controllers
 {
     public class HomeController : Controller
     {
@@ -35,8 +35,8 @@ namespace sandbox_asp.Controllers
         }
 
         [HttpGet]
-        [Route("callingCards_api/{fname}/{lname}/{age}/{color}")]
-        public JsonResult CallingCards_api(string fname, string lname, int age, string color)
+        [Route("callingCards/{fname}/{lname}/{age}/{color}")]
+        public JsonResult CallingCards(string fname, string lname, int age, string color)
         {
             var fromUrl = new {
                 first_name = fname,

@@ -1,6 +1,6 @@
 using System;
 
-namespace sandbox_asp.Models
+namespace asp_sandbox.Models
 {
     public class ErrorViewModel
     {

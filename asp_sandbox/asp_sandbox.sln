@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 15.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_sandbox", "asp_sandbox.csproj", "{72BD5552-51CF-4CFE-9013-72ED77FCFB4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72BD5552-51CF-4CFE-9013-72ED77FCFB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BD5552-51CF-4CFE-9013-72ED77FCFB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BD5552-51CF-4CFE-9013-72ED77FCFB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BD5552-51CF-4CFE-9013-72ED77FCFB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
