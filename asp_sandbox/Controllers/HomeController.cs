@@ -11,6 +11,13 @@ namespace asp_sandbox.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
+        [Route("default")]
+        public IActionResult IndexDefault()
+        {
+            return View("Index");
+        }
+
+        [HttpGet]
         [Route("haro")]
         public string Index()
         {
@@ -38,7 +45,8 @@ namespace asp_sandbox.Controllers
         [Route("callingCards/{fname}/{lname}/{age}/{color}")]
         public JsonResult CallingCards(string fname, string lname, int age, string color)
         {
-            var fromUrl = new {
+            var fromUrl = new
+            {
                 first_name = fname,
                 last_name = lname,
                 age = age,
@@ -47,11 +55,11 @@ namespace asp_sandbox.Controllers
             return Json(fromUrl);
         }
 
-        public IActionResult About()
+        [HttpGet]
+        [Route("showtime")]
+        public IActionResult showTime()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return View("showtime");
         }
 
         public IActionResult Contact()

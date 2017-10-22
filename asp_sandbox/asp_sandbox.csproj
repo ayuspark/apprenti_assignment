@@ -13,4 +13,15 @@
     <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Views\Home\Template.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>showtime.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Home\showtime.cs">
+      <DependentUpon>showtime.cshtml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
