@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <h1>Current time is:</h1>
+
+    <form action="/showtime/survey" method="post">
+        <label for="name">
+            Name: <br>
+            <input type="text" name="name">
+        </label>
+        <label for="location">
+            Location:<br>
+            <select name="location">
+                <option value="Seattle">Seattle</option>
+                <option value="NYC">NYC</option>
+                <option value="Shanghai" autofocus>Shanghai</option>
+            </select>
+        </label>
+        <label for="lang">
+            Languages:
+            <br>
+            <select name="lang">
+                <option value="Python">Python</option>
+                <option value="C#">C#</option>
+                <option value="Ruby" autofocus>Ruby</option>
+            </select>
+        </label>
+       <label for="comment">
+           <textarea name="comment" cols="30" rows="10"></textarea>
+       </label>
+    </form>
+
+    <h3>Name: <p>@ViewBag.name</p></h3>
+    <h3>Location: <p>@ViewBag.location</p></h3>
+    <h3>Language: <p>@ViewBag.lang</p></h3>
+    <h3>Comment: <p>@ViewBag.comment</p></h3>
+    
+</body>
+</html>

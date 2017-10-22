@@ -62,6 +62,18 @@ namespace asp_sandbox.Controllers
             return View("showtime");
         }
 
+        [HttpPost]
+        [Route("showtime/survey")]
+        public IActionResult SurveyForm(string name, string location, string lang, string comment)
+        {
+            ViewBag.name = name;
+            ViewBag.location = location;
+            ViewBag.lang = lang;
+            ViewBag.comment = comment;
+            return View("showtime");
+        }
+
+
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
