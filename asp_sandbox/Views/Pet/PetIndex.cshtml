@@ -21,21 +21,29 @@
         </figure>
 
         <div class="petForm">
-            <form action="/pet/feed" method="post">
-                <input type="submit" value="Feed">
-            </form>
+            @if (ViewBag.renderForm == true)
+            {
+                <form action="/pet/feed" method="post">
+                    <input type="submit" value="Feed">
+                </form>
 
-            <form action="/pet/play" method="post">
-                <input type="submit" value="Play">
-            </form>
+                <form action="/pet/play" method="post">
+                    <input type="submit" value="Play">
+                </form>
 
-            <form action="/pet/work" method="post">
-                <input type="submit" value="Work">
-            </form>
+                <form action="/pet/work" method="post">
+                    <input type="submit" value="Work">
+                </form>
 
-            <form action="/pet/sleep" method="post">
-                <input type="submit" value="Sleep">
-            </form>
+                <form action="/pet/sleep" method="post">
+                    <input type="submit" value="Sleep">
+                </form>
+            } else
+            {
+                <form action="/pet/reset" method="post">
+                    <input type="submit" value="New Pet">
+                </form>
+            }
         </div>
     </body>
 </html>

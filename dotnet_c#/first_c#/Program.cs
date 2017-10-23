@@ -256,7 +256,6 @@ namespace first_c_
             maki.ShowStatus();
             lola.Attack(maki);
             maki.ShowStatus();
-
         }
     }
 }

@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Pet\" />
+    <Folder Include="Models\JsonData\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\Pet\PetIndex.cshtml.cs">

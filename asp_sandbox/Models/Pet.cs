@@ -6,9 +6,9 @@ namespace asp_sandbox
     public class Pet
     {
         //public string Name { get; private set; }
-        public int Happiness { get; private set; }
-        public int Fullness { get; private set; }
-        public int Energy { get; private set; }
+        public int Happiness { get; set; }
+        public int Fullness { get; set; }
+        public int Energy { get; set; }
         public int Meal { get; set; }
         public string output { get; set; }
         private Random rand { get; set; }
@@ -16,10 +16,10 @@ namespace asp_sandbox
         public Pet()
         {
             //Name = name;
-            Happiness = 20;
-            Fullness = 20;
-            Energy = 50;
-            Meal = 3;
+            Happiness = 5;
+            Fullness = 5;
+            Energy = 5;
+            Meal = 7;
             rand = new Random();
         }
 
@@ -28,16 +28,17 @@ namespace asp_sandbox
             Contract.Ensures(Contract.Result<Pet>() != null);
             if (Meal > 0)
             {
-                //if (rand.Next(1, 5) / 4.00 >= 1 / 4.00)
-                //{
+                int possibility = rand.Next(1, 5);
+                if (possibility / 4.00 > 1 / 4.00)
+                {
                     Meal--;
                     Fullness += rand.Next(5, 11);
                     output = $"You feed it a meal, {Meal} left.\nIt's {Fullness} full.";
-                //} else
-                //{
-                    //Pet.Meal--;
-                    //output = $"You feed it a meal, {Pet.Meal} left.\nBut it ain't like it.";
-                //}
+                } else
+                {
+                    Meal--;
+                    output = $"You feed it a meal, {Meal} left.\nBut it ain't like it.";
+                }
             } else
             {
                 output = "You have no meals to feed it.";
