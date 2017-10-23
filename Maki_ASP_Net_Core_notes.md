@@ -1,7 +1,7 @@
 Great note from [Maki Roggers](https://github.com/makiroggers).
 Thank you very much Maki!
 (I put it here so that I can keep using it as a reference.)
-![smiling alpaca for maki](https://static.boredpanda.com/blog/wp-content/uploads/2017/03/cute-funny-alpacas-110-58c65b3fb0296__605.jpg | width=100)
+<img src="https://static.boredpanda.com/blog/wp-content/uploads/2017/03/cute-funny-alpacas-110-58c65b3fb0296__605.jpg" width="100" />
 
 
 # Creating an MVC Project in VSCode
