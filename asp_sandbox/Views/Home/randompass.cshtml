@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Random Passcode</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="~/css/site.css" rel="stylesheet">
+    </head>
+    <body>
+        <h3>Random Passcode Generator</h3>
+        <h4>Passcode @ViewBag.count</h4>
+        <form action="/randompass" method="get">
+            <p class="passcode">@ViewBag.passcode</p>
+            <input type="submit" value="Generate">
+        </form>
+    </body>
+</html>

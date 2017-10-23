@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using asp_sandbox.Models;
 
 namespace asp_sandbox.Controllers
@@ -17,12 +16,14 @@ namespace asp_sandbox.Controllers
             return View("Index");
         }
 
+
         [HttpGet]
         [Route("haro")]
         public string Index()
         {
             return "Haro World";
         }
+
 
         [HttpGet]
         [Route("json/")]
@@ -41,6 +42,7 @@ namespace asp_sandbox.Controllers
             return Json(anonymousObj);
         }
 
+
         [HttpGet]
         [Route("callingCards/{fname}/{lname}/{age}/{color}")]
         public JsonResult CallingCards(string fname, string lname, int age, string color)
@@ -55,6 +57,7 @@ namespace asp_sandbox.Controllers
             return Json(fromUrl);
         }
 
+
         [HttpGet]
         [Route("showtime")]
         public IActionResult showTime()
@@ -62,24 +65,54 @@ namespace asp_sandbox.Controllers
             return View("showtime");
         }
 
+
+        [HttpGet]
         [HttpPost]
         [Route("showtime/survey")]
         public IActionResult SurveyForm(string name, string location, string lang, string comment)
         {
-            ViewBag.name = name;
-            ViewBag.location = location;
-            ViewBag.lang = lang;
-            ViewBag.comment = comment;
+            if (name == null || location == null || lang == null || comment == null )
+            {
+                ViewBag.Error = "All fields are required apparently duh.";
+                return View("showtime");
+            } else {
+                ViewBag.name = name;
+                ViewBag.location = location;
+                ViewBag.lang = lang;
+                ViewBag.comment = comment;
+            }
             return View("showtime");
         }
 
 
-        public IActionResult Contact()
+        [HttpGet]
+        [Route("randompass")]
+        public IActionResult RandomPass()
         {
-            ViewData["Message"] = "Your contact page.";
+            try
+            {
+                int? count = HttpContext.Session.GetInt32("count");
+                count += 1;
+                HttpContext.Session.SetInt32("count", (int)count);
+                ViewBag.count = count;
+            }
+            catch(InvalidOperationException){
+                HttpContext.Session.SetInt32("count", 0);
+                ViewBag.count = 0;
+            }
 
-            return View();
+            string chars = "ABCDESFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            Random rand = new Random();
+            string passcode = "";
+            for (int i = 0; i < 15; i++)
+            {
+                passcode += chars[rand.Next(0, chars.Length)];
+            }
+            passcode.ToUpper();
+            ViewBag.passcode = passcode;
+            return View("randompass");
         }
+       
 
         public IActionResult Error()
         {

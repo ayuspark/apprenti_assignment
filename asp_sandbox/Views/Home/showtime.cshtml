@@ -17,6 +17,10 @@
 	<h2>@date</h2>
     <h2>@time</h2>
 
+	@if (ViewBag.Error != null) {
+        <h4 class="error">@ViewBag.Error</h4>
+	}
+    
 	<form action="/showtime/survey" method="post">
         <label for="name">
             Name: <br>
@@ -47,10 +51,14 @@
     </form>
 
 	<h2>Info from the form: </h2>
-    <h3>Name: <p>@ViewBag.name</p></h3>
-    <h3>Location: <p>@ViewBag.location</p></h3>
-    <h3>Language: <p>@ViewBag.lang</p></h3>
-    <h3>Comment: <p>@ViewBag.comment</p></h3>
+    <h3>Name:</h3>
+    <p>@ViewBag.name</p>
+    <h3>Location:</h3>
+    <p>@ViewBag.location</p>
+    <h3>Language:</h3>
+    <p>@ViewBag.lang</p>
+    <h3>Comment:</h3>
+    <p>@ViewBag.comment</p>
 	        
 </body>
 </html>
