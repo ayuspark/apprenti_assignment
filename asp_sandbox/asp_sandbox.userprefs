@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{72BD5552-51CF-4CFE-9013-72ED77FCFB4D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="sessionExtensionHelper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/HomeController.cs">
     <Files>
       <File FileName="Controllers/ArtistController.cs" Line="70" Column="33" />
       <File FileName="Controllers/GroupController.cs" Line="54" Column="10" />
-      <File FileName="Controllers/HomeController.cs" Line="89" Column="30" />
+      <File FileName="Controllers/HomeController.cs" Line="109" Column="60" />
       <File FileName="Views/Home/showtime.cshtml" Line="1" Column="1" />
       <File FileName="Program.cs" Line="21" Column="1" />
-      <File FileName="wwwroot/css/site.css" Line="51" Column="18" />
+      <File FileName="wwwroot/css/site.css" Line="61" Column="17" />
       <File FileName="Startup.cs" Line="48" Column="24" />
-      <File FileName="sessionExtensionHelper.cs" Line="24" Column="1" />
+      <File FileName="Controllers/PetController.cs" Line="22" Column="18" />
+      <File FileName="Pet.cs" Line="86" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

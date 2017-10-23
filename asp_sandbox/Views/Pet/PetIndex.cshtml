@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pet</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="~/css/site.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="petStatus">
+            <h5>Fullness: @ViewBag.fullness</h5>
+            <h5>Happiness: @ViewBag.happiness</h5>
+            <h5>Meals: @ViewBag.meal</h5>
+            <h5>Energy: @ViewBag.energy</h5>
+        </div>
+        <figure>
+            <img src="https://goo.gl/VKrU9S" alt="pet alpaca">
+            <figcaption>
+                <p>@ViewBag.caption</p>
+            </figcaption>
+        </figure>
+
+        <div class="petForm">
+            <form action="/pet/feed" method="post">
+                <input type="submit" value="Feed">
+            </form>
+
+            <form action="/pet/play" method="post">
+                <input type="submit" value="Play">
+            </form>
+
+            <form action="/pet/work" method="post">
+                <input type="submit" value="Work">
+            </form>
+
+            <form action="/pet/sleep" method="post">
+                <input type="submit" value="Sleep">
+            </form>
+        </div>
+    </body>
+</html>

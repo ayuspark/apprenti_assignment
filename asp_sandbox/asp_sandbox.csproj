@@ -21,4 +21,12 @@
     <Compile Remove="Views\Home\showtime.cs" />
     <Compile Remove="Views\Home\Template.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Pet\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Pet\PetIndex.cshtml.cs">
+      <DependentUpon>PetIndex.cshtml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
