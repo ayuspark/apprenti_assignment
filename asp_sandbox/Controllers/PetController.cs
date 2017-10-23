@@ -12,18 +12,7 @@ namespace asp_sandbox.Controllers
     public class PetController : Controller
     {
         private static Pet myPet { get; set; }
-        //public PetController()
-        //{
-        //    try
-        //    {
-        //        myPet = HttpContext.Session.GetObjectFromJson<Pet>("myPet");
-        //    }
-        //    catch(NullReferenceException)
-        //    {
-        //        myPet = new Pet();
-        //        HttpContext.Session.SetObjectAsJson("myPet", myPet);
-        //    }
-        //}
+
 
         [HttpGet]
         [Route("pet")]
