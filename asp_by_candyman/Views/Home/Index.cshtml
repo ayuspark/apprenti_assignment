@@ -1,6 +1,23 @@
-@{
-    ViewData["Title"] = "Home Page";
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>PokeAPI again!</h2>
+<form action="/pokeapi">
+    <label for="pokeid">
+        <input type="number" name="pokeid">
+    </label>
+    <input type="submit" value="Search">
+</form>
+<h4>Name: @ViewData["name"]</h4>
+<h4>Weight: @ViewData["weight"]</h4>
+<h4>Height: @ViewData["height"]</h4>
+<h4>Types: </h4>
+@if (ViewBag.Type != null)
+{
+    <ul>
+        @{ foreach (string type in @ViewBag.Type) 
+            {
+            <li>@type</li>
+            } 
+        }
+    </ul>
 }
-<h1>Default Blank Page~</h1>
-<p>@ViewBag.haro</p>
-<p>Get to adding stuff</p>

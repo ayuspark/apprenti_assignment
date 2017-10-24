@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{F0DB0C01-4687-4223-B0C6-700EF3965781}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/Index.cshtml">
+    <Files>
+      <File FileName="ApiCalls/pokeapi.cs" Line="26" Column="71" />
+      <File FileName="Controllers/HomeController.cs" Line="29" Column="21" />
+      <File FileName="Views/Home/Index.cshtml" Line="5" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.asp__candyman PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

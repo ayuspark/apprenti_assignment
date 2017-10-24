@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 15.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_candyman", "asp_candyman.csproj", "{F0DB0C01-4687-4223-B0C6-700EF3965781}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0DB0C01-4687-4223-B0C6-700EF3965781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0DB0C01-4687-4223-B0C6-700EF3965781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0DB0C01-4687-4223-B0C6-700EF3965781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0DB0C01-4687-4223-B0C6-700EF3965781}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
