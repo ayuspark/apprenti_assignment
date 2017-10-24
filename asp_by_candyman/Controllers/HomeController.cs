@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Linq;
 
 namespace asp_candyman.Controllers
 {
@@ -22,25 +23,20 @@ namespace asp_candyman.Controllers
         [Route("pokeapi")]
         public IActionResult Pokeapi(int pokeid)
         {
-            var pokeResponse = new Dictionary<string, dynamic>();
+            Dictionary<string, dynamic> pokeResponse = new Dictionary<string, dynamic>();
+
+            // passing JObject can work too
+            // JObject pokeResponse = new JObject();
+
             WebRequest.GetPokeapiResponse(pokeid, api_response => 
             {
                 pokeResponse = api_response;
             }).Wait();
 
-            Console.WriteLine(pokeResponse);
-            ViewData["name"] = pokeResponse["forms"][0]["name"];
+            ViewData["name"] = pokeResponse["name"];
             ViewData["weight"] = pokeResponse["weight"];
             ViewData["height"] = pokeResponse["height"];
-            //List<object> pokeTypeList = pokeResponse["types"];
-
-            List<string> typeResult = new List<string>();
-            foreach (var el in pokeResponse["types"])
-            {
-                string toAdd = el["type"]["name"];
-                typeResult.Add(toAdd);
-            }
-            ViewBag.Type = typeResult;
+            ViewBag.Type = pokeResponse["types"];
 
             return View("Index");
         }
