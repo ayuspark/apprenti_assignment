@@ -24,7 +24,7 @@ namespace asp_sandbox.Controllers
                 myPet = new Pet();
                 HttpContext.Session.SetObjectAsJson("myPet", myPet);
             }
-            if (myPet.Fullness == 100 || myPet.Happiness == 100)
+            if (myPet.Fullness >= 100 || myPet.Happiness >= 100)
             {
                 ViewBag.caption = "You won! Some value reached 100, you can kill it now.";
                 ViewBag.renderForm = false;
@@ -46,59 +46,35 @@ namespace asp_sandbox.Controllers
 
 
         [HttpPost]
-        [Route("/pet/feed")]
-        public IActionResult Feed()
+        [Route("pet/{interaction}")]
+        public IActionResult Action(string interaction)
         {
             myPet = HttpContext.Session.GetObjectFromJson<Pet>("myPet");
-            myPet = myPet.Feed();
-            TempData["caption"] = myPet.output;
-            HttpContext.Session.SetObjectAsJson("myPet", myPet);
+            if (interaction != "reset")
+            {
+                switch (interaction)
+                {
+                    case "feed":
+                        myPet = myPet.Feed();
+                        break;
+                    case "play":
+                        myPet = myPet.Play();
+                        break;
+                    case "sleep":
+                        myPet = myPet.Sleep();
+                        break;
+                    case "work":
+                        myPet = myPet.Work();
+                        break;        
+                }
+                TempData["caption"] = myPet.output;
+                HttpContext.Session.SetObjectAsJson("myPet", myPet);
+            } else
+            {
+                HttpContext.Session.Clear();
+                TempData["caption"] = "new pet!";
+            }
             return RedirectToAction("Index");
         }
-
-
-        [HttpPost]
-        [Route("/pet/play")]
-        public IActionResult Play()
-        {
-            myPet = HttpContext.Session.GetObjectFromJson<Pet>("myPet");
-            myPet = myPet.Play();
-            TempData["caption"] = myPet.output;
-            HttpContext.Session.SetObjectAsJson("myPet", myPet);
-            return RedirectToAction("Index");
-        }
-
-
-        [HttpPost]
-        [Route("/pet/sleep")]
-        public IActionResult Sleep()
-        {
-            myPet = HttpContext.Session.GetObjectFromJson<Pet>("myPet");
-            myPet = myPet.Sleep();
-            TempData["caption"] = myPet.output;
-            HttpContext.Session.SetObjectAsJson("myPet", myPet);
-            return RedirectToAction("Index");
-        }
-
-
-        [HttpPost]
-        [Route("/pet/work")]
-        public IActionResult Work()
-        {
-            myPet = HttpContext.Session.GetObjectFromJson<Pet>("myPet");
-            myPet = myPet.Work();
-            TempData["caption"] = myPet.output;
-            HttpContext.Session.SetObjectAsJson("myPet", myPet);
-            return RedirectToAction("Index");
-        }
-
-
-        [HttpPost]
-        [Route("/pet/reset")]
-        public IActionResult Reset()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index");
-        } 
     }
 }

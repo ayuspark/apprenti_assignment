@@ -50,7 +50,7 @@ namespace asp_sandbox
         {
             if (Energy >= 5)
             {
-                if (rand.Next(1, 5) / 4.00 >= 1 / 4.00)
+                if (rand.Next(1, 5) / 4.00 > 1 / 4.00)
                 {
                     Energy -= 5;
                     Happiness += rand.Next(5, 11);
