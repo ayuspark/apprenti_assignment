@@ -54,7 +54,7 @@ namespace asp_candyman.Controllers
                 query = $"INSERT INTO quotesDB.quotes(quote, created, users_id) VALUES('{quote}', NOW(), '{id}')";
             }
             _dbConnector.Execute(query);
-            return RedirectToAction("QuotesAll");
+            return RedirectToAction("Index");
         }
     }
 }

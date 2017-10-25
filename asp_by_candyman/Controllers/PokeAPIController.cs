@@ -15,7 +15,7 @@ namespace asp_candyman.Controllers
         public IActionResult Index()
         {
             ViewBag.haro = "haro";
-            return View("Index");
+            return View("PokeAPI");
         }
 
 
