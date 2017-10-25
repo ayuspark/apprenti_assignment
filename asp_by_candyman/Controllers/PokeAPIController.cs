@@ -38,7 +38,7 @@ namespace asp_candyman.Controllers
             ViewData["height"] = pokeResponse["height"];
             ViewBag.Type = pokeResponse["types"];
 
-            return View("Index");
+            return View("PokeAPI");
         }
     }
 }

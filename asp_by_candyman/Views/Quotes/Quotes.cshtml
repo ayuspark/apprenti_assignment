@@ -1,0 +1,15 @@
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @ViewData["Title"] = Quotes;
+}
+
+<h2>Here is the Quotes Site</h2>
+<form action="/quote/add" method="post">
+    <label for="name">Your name: <br>
+        <input type="text" name="name">
+    </label>
+    <label for="quote">Your quote: <br>
+        <textarea name="quote" cols="30" rows="10"></textarea>
+    </label>
+    <input type="submit" value="Go!">
+</form>
