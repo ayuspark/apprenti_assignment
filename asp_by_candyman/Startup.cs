@@ -16,6 +16,7 @@ namespace asp_candyman
             services.AddMvc();
             services.AddSession();
             services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+            services.Configure<TMDBOptions>(Configuration.GetSection("TMDB"));
             services.AddScoped<DbConnector>();
         }
 

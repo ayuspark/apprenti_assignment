@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Options;
 
 namespace asp_candyman
 {
@@ -42,6 +43,39 @@ namespace asp_candyman
                         {"types", types},
                     };
 
+                    Callback(cleanedResponse);
+                }
+                catch(HttpRequestException e)
+                {
+                    Console.WriteLine($"Request exceptions: {e.Message}");
+                }
+            }
+        }
+
+      
+        public static async Task GetTMDBapiReponse(string name, string apiKey, Action<Dictionary<string, dynamic>> Callback)
+        {
+            using(var client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri($"https://api.themoviedb.org/3/search/movie?api_key={apiKey}&query={name}");
+                    HttpResponseMessage response = await client.GetAsync("");
+                    response.EnsureSuccessStatusCode();
+                    string stringResponse = await response.Content.ReadAsStringAsync();
+
+                    JObject tokens = JObject.Parse(stringResponse);
+
+                    float rating = (float)tokens.SelectToken("results[0].vote_average");
+                    DateTime release = Convert.ToDateTime(tokens.SelectToken("results[0].release_date"));
+                    string title = (string)tokens.SelectToken("results[0].title");
+
+                    Dictionary<string, dynamic> cleanedResponse = new Dictionary<string, dynamic>
+                    {
+                        {"title", title},
+                        {"rating", rating},
+                        {"release", release},
+                    };
                     Callback(cleanedResponse);
                 }
                 catch(HttpRequestException e)

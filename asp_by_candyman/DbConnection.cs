@@ -7,18 +7,6 @@ namespace asp_candyman
 {
     public class DbConnector
     {
-        //static string server = "localhost";
-        //static string db = "quotesDB";
-        //static string port = "3306";
-        //static string user = "****";
-        //static string pass = "****";
-        //internal static IDbConnection MyConnection
-        //{
-        //    get {
-        //        return new MySqlConnection($"Server={server};Port={port};Database={db};UserID={user};Password={pass};SslMode=None");
-        //    }
-        //}
-
         private readonly IOptions<MySqlOptions> MySqlConfig;
 
         public DbConnector(IOptions<MySqlOptions> config)
