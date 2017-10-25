@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace asp_candyman
+namespace DBConnection
 {
     public class DbConnector
     {
         static string server = "localhost";
-        static string db = "myDatabse";
+        static string db = "quotesDB";
         static string port = "3306";
         static string user = "root";
         static string pass = "root";

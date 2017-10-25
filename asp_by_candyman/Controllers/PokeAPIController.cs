@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace asp_candyman.Controllers
 {
-    public class HomeController : Controller
+    public class PokeAPIController : Controller
     {
         // GET: /Home/
         [HttpGet]

@@ -1,15 +1,35 @@
 @{ 
     Layout = "~/Views/Shared/_Layout.cshtml";
-    @ViewData["Title"] = Quotes;
 }
 
-<h2>Here is the Quotes Site</h2>
-<form action="/quote/add" method="post">
-    <label for="name">Your name: <br>
-        <input type="text" name="name">
-    </label>
-    <label for="quote">Your quote: <br>
-        <textarea name="quote" cols="30" rows="10"></textarea>
-    </label>
-    <input type="submit" value="Go!">
-</form>
+<section>
+    <h2>Here is the Quotes Site</h2>
+    <h5>@ViewBag.Error</h5>
+    <form action="/quote/add" method="post">
+        <label for="name">Your name: <br>
+            <input type="text" name="name">
+        </label>
+        <label for="quote">Your quote: <br>
+            <textarea name="quote" cols="30" rows="10"></textarea>
+        </label>
+        <input type="submit" value="Go!">
+    </form>
+</section>
+
+<section class="all_quotes">
+    <h2>All quotes here!</h2>
+    <ul>
+    @{
+        if (ViewBag.allQuotes != null)
+        {
+            for (var i = 0; i < @ViewBag.allQuotes.Count; i++)
+            {
+                <li>
+                    <span>@ViewBag.allQuotes[i]["quote"]</span> <br>
+                    <span class="user_info">- @ViewBag.allQuotes[i]["name"] at @ViewBag.allQuotes[i]["created"]</span>
+                </li>
+            }
+        }
+    }
+    </ul>
+</section>
