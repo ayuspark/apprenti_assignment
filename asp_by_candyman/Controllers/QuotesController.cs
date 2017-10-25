@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System;
 using System.Collections.Generic;
+using asp_candyman.Models;
 
 namespace asp_candyman.Controllers
 {
@@ -20,7 +21,7 @@ namespace asp_candyman.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Quotes";
-            ViewBag.Error = TempData["error"];
+            ViewBag.ModelFields = null;
 
             string query = $"SELECT users.id as user_id, quotes.id as quote_id, name, quote, created FROM quotesDB.users JOIN quotesDB.quotes WHERE users.id = quotes.users_id ORDER BY created DESC";
             List<Dictionary<string, object>> allQuotes = new List<Dictionary<string, object>>();
@@ -37,10 +38,16 @@ namespace asp_candyman.Controllers
         {
             string query;
 
-            if (name == null || quote == null)
+            Quote new_quote = new Quote()
             {
-                TempData["error"] = "all fields required!";
-                return RedirectToAction("Index");
+                Name = name,
+                QuoteContent = quote,
+            };
+
+            if (TryValidateModel(new_quote) == false)
+            {
+                ViewBag.ModelFields = ModelState.Values;
+                return View("Quotes");
             }
         
             string user_id_query = $"SELECT id FROM quotesDB.users WHERE name = '{name}'";

@@ -4,7 +4,18 @@
 
 <section>
     <h2>Here is the Quotes Site</h2>
-    <h5>@ViewBag.Error</h5>
+    <ul>
+    @{
+        foreach (var field in ViewBag.ModelFields)
+        {
+            if (field.Errors.Count > 0) 
+            {
+                <li>@field.Errors[0].ErrorMessage</li>
+            } 
+        }
+    }
+    </ul>
+
     <form action="/quote/add" method="post">
         <label for="name">Your name: <br>
             <input type="text" name="name">
