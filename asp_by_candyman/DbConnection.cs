@@ -1,26 +1,41 @@
 using System.Collections.Generic;
 using System.Data;
+using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 
-namespace DBConnection
+namespace asp_candyman
 {
     public class DbConnector
     {
-        static string server = "localhost";
-        static string db = "quotesDB";
-        static string port = "3306";
-        static string user = "root";
-        static string pass = "root";
-        internal static IDbConnection MyConnection
+        //static string server = "localhost";
+        //static string db = "quotesDB";
+        //static string port = "3306";
+        //static string user = "****";
+        //static string pass = "****";
+        //internal static IDbConnection MyConnection
+        //{
+        //    get {
+        //        return new MySqlConnection($"Server={server};Port={port};Database={db};UserID={user};Password={pass};SslMode=None");
+        //    }
+        //}
+
+        private readonly IOptions<MySqlOptions> MySqlConfig;
+
+        public DbConnector(IOptions<MySqlOptions> config)
         {
-            get {
-                return new MySqlConnection($"Server={server};Port={port};Database={db};UserID={user};Password={pass};SslMode=None");
+            MySqlConfig = config;
+        }
+        internal IDbConnection Connection
+        {
+            get
+            {
+                return new MySqlConnection(MySqlConfig.Value.ConnectionString);
             }
         }
 
-        public static List<Dictionary<string, object>> Query(string query)
+        public List<Dictionary<string, object>> Query(string query)
         {
-            using(IDbConnection dbConnection = MyConnection)
+            using(IDbConnection dbConnection = Connection)
             {
                 using (IDbCommand command = dbConnection.CreateCommand())
                 {
@@ -44,9 +59,9 @@ namespace DBConnection
             }
         }
 
-        public static void Execute(string query)
+        public void Execute(string query)
         {
-            using(IDbConnection dbConnection = MyConnection)
+            using(IDbConnection dbConnection = Connection)
             {
                 using(IDbCommand command = dbConnection.CreateCommand())
                 {

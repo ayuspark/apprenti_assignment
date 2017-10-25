@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using DBConnection;
 using System;
 using System.Collections.Generic;
 
@@ -8,6 +7,14 @@ namespace asp_candyman.Controllers
 {
     public class QuotesController : Controller
     {
+        private readonly DbConnector _dbConnector;
+
+        public QuotesController(DbConnector connect)
+        {
+            _dbConnector = connect;
+        }
+
+
         [HttpGet]
         [Route("quote")]
         public IActionResult Index()
@@ -17,7 +24,7 @@ namespace asp_candyman.Controllers
 
             string query = $"SELECT users.id as user_id, quotes.id as quote_id, name, quote, created FROM quotesDB.users JOIN quotesDB.quotes WHERE users.id = quotes.users_id ORDER BY created DESC";
             List<Dictionary<string, object>> allQuotes = new List<Dictionary<string, object>>();
-            allQuotes = DbConnector.Query(query);
+            allQuotes = _dbConnector.Query(query);
             ViewBag.allQuotes = allQuotes;
 
             return View("Quotes");
@@ -37,7 +44,7 @@ namespace asp_candyman.Controllers
             }
         
             string user_id_query = $"SELECT id FROM quotesDB.users WHERE name = '{name}'";
-            List<Dictionary<string, object>> test = DbConnector.Query($"SELECT id FROM quotesDB.users WHERE name = '{name}'");
+            List<Dictionary<string, object>> test = _dbConnector.Query($"SELECT id FROM quotesDB.users WHERE name = '{name}'");
             if (test.Count == 0 )
             {
                 query = $"INSERT INTO quotesDB.users(name) VALUES('{name}')";
@@ -46,7 +53,7 @@ namespace asp_candyman.Controllers
                 string id = test.First()["id"].ToString();
                 query = $"INSERT INTO quotesDB.quotes(quote, created, users_id) VALUES('{quote}', NOW(), '{id}')";
             }
-            DbConnector.Execute(query);
+            _dbConnector.Execute(query);
             return RedirectToAction("QuotesAll");
         }
     }
