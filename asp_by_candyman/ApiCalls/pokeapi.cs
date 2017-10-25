@@ -67,7 +67,7 @@ namespace asp_candyman
                     JObject tokens = JObject.Parse(stringResponse);
 
                     float rating = (float)tokens.SelectToken("results[0].vote_average");
-                    DateTime release = Convert.ToDateTime(tokens.SelectToken("results[0].release_date"));
+                    string release = (string)tokens.SelectToken("results[0].release_date");
                     string title = (string)tokens.SelectToken("results[0].title");
 
                     Dictionary<string, dynamic> cleanedResponse = new Dictionary<string, dynamic>

@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{F0DB0C01-4687-4223-B0C6-700EF3965781}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Properties/TMDBOptions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/css/site.css">
     <Files>
-      <File FileName="Controllers/TMDBController.cs" Line="17" Column="10" />
-      <File FileName="appsettings.json" Line="8" Column="52" />
-      <File FileName="ApiCalls/pokeapi.cs" Line="61" Column="134" />
-      <File FileName="Startup.cs" Line="20" Column="47" />
-      <File FileName="Properties/MySqlOptions.cs" Line="1" Column="1" />
-      <File FileName="DbConnection.cs" Line="16" Column="31" />
-      <File FileName="Properties/TMDBOptions.cs" Line="3" Column="18" />
+      <File FileName="Controllers/TMDBController.cs" Line="68" Column="31" />
+      <File FileName="ApiCalls/pokeapi.cs" Line="70" Column="52" />
+      <File FileName="DbConnection.cs" Line="24" Column="68" />
+      <File FileName="Controllers/PokeAPIController.cs" Line="31" Column="15" />
+      <File FileName="Controllers/QuotesController.cs" Line="10" Column="8" />
+      <File FileName="wwwroot/css/site.css" Line="18" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

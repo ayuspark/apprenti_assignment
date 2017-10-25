@@ -1,13 +1,33 @@
 @{ Layout = "~/Views/Shared/_Layout.cshtml"; }
 <h2>Another API, TMDB!</h2>
-<form action="/movies" method="post">
+<form action="/movies/search" method="post" id="search_form">
     <label for="name">Search by name: <br>
         <input type="text" name="name">
     </label>
-    <input type="submit" value="search">
+    <input type="submit" value="search" class="btn">
 </form>
 
-<section class="all_movies">
-    
+<section id="search_result">
+    <h2>Your search result is below: </h2>
 
 </section>
+
+<section class="all_movies">
+    <h2>Past search results: </h2>
+    <ul>
+        @{ if (ViewBag.all_movies != null) 
+            { 
+                for (var i = 0; i < @ViewBag.all_movies.Count; i++) 
+                { 
+                    <li>
+                        <span><em>@ViewBag.all_movies[i]["title"]</em> - @ViewBag.all_movies[i]["rating"] released at @ViewBag.all_movies[i]["release"].ToString().Substring(0, 7)</span>
+                    </li>
+            
+                } 
+            } 
+        }
+    </ul>
+</section>
+
+@section Scripts{
+<script type="text/javascript" src="~/js/TMDB.js"></script> }
