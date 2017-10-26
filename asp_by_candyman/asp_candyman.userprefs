@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{F0DB0C01-4687-4223-B0C6-700EF3965781}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Quote.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/UserController.cs">
     <Files>
       <File FileName="Controllers/TMDBController.cs" Line="41" Column="13" />
-      <File FileName="ApiCalls/pokeapi.cs" Line="70" Column="52" />
       <File FileName="DbConnection.cs" Line="24" Column="68" />
       <File FileName="Controllers/PokeAPIController.cs" Line="31" Column="15" />
-      <File FileName="Controllers/QuotesController.cs" Line="44" Column="29" />
-      <File FileName="wwwroot/css/site.css" Line="19" Column="24" />
-      <File FileName="Models/Quote.cs" Line="13" Column="28" />
+      <File FileName="Controllers/QuotesController.cs" Line="49" Column="36" />
+      <File FileName="Models/User.cs" Line="52" Column="5" />
+      <File FileName="Controllers/UserController.cs" Line="15" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
