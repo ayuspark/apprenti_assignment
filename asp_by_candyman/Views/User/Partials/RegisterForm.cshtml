@@ -3,23 +3,23 @@
 <form asp-controller="User" asp-action="Register" method="post">
     <span asp-validation-for="FName"></span>
     <label asp-for="FName"></label>
-    <input asp-for="FName" />
+    <input class="form-control" asp-for="FName" />
 
     <span asp-validation-for="LName"></span>
     <label asp-for="LName"></label>
-    <input asp-for="LName" />
+    <input class="form-control" asp-for="LName" />
 
     <span asp-validation-for="Email"></span>
     <label asp-for="Email"></label>
-    <input asp-for="Email" />
+    <input class="form-control" asp-for="Email" />
 
     <span asp-validation-for="Password"></span>
     <label asp-for="Password"></label>
-    <input asp-for="Password" />
+    <input class="form-control" asp-for="Password" />
 
     <span asp-validation-for="ConfirmPass"></span>
     <label asp-for="ConfirmPass"></label>
-    <input asp-for="ConfirmPass" />
-    
-    <button type="submit">Create new User</button>
+    <input class="form-control" asp-for="ConfirmPass" />
+
+    <button type="submit" class="btn">Create new User</button>
 </form>

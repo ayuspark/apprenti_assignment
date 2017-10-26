@@ -1,8 +1,16 @@
 ﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
 @{ ViewData["Title"] = "User"; }
 
-@Html.Partial("./Partials/LoginForm")
-@Html.Partial("./Partials/RegisterForm")
-
 <h2>User Page!</h2>
 <h5>@ViewData["success"]</h5>
+
+<section class="container">
+    <div class = "row">
+        <div class="col-md-5 form-group">
+            @Html.Partial("./Partials/LoginForm")
+        </div>
+        <div class="col-md-5 form-group">
+            @Html.Partial("./Partials/RegisterForm")
+        </div>
+    </div>
+</section>
