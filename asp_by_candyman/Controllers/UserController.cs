@@ -26,6 +26,7 @@ namespace asp_candyman.Controllers
         [Route("user")]
         public IActionResult Index()
         {
+            
             ViewData["success"] = TempData["success"];
             return View("Index");
         }

@@ -1,12 +1,15 @@
 ﻿<Properties StartupConfiguration="{F0DB0C01-4687-4223-B0C6-700EF3965781}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/UserController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="asp_candyman.csproj">
     <Files>
       <File FileName="Controllers/TMDBController.cs" Line="41" Column="13" />
-      <File FileName="DbConnection.cs" Line="24" Column="68" />
+      <File FileName="DbConnection.cs" Line="20" Column="36" />
       <File FileName="Controllers/PokeAPIController.cs" Line="31" Column="15" />
-      <File FileName="Controllers/QuotesController.cs" Line="49" Column="36" />
-      <File FileName="Models/User.cs" Line="52" Column="5" />
-      <File FileName="Controllers/UserController.cs" Line="15" Column="35" />
+      <File FileName="Controllers/QuotesController.cs" Line="11" Column="9" />
+      <File FileName="Models/User.cs" Line="20" Column="42" />
+      <File FileName="Controllers/UserController.cs" Line="9" Column="1" />
+      <File FileName="Startup.cs" Line="37" Column="46" />
+      <File FileName="Program.cs" Line="20" Column="1" />
+      <File FileName="asp_candyman.csproj" Line="17" Column="68" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

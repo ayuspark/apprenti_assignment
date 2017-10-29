@@ -47,7 +47,7 @@ namespace asp_sandbox.Controllers
 
         [HttpPost]
         [Route("pet/{interaction}")]
-        public IActionResult Action(string interaction)
+        public IActionResult Interaction(string interaction)
         {
             myPet = HttpContext.Session.GetObjectFromJson<Pet>("myPet");
             if (interaction != "reset")
