@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{2A8BFF46-5B92-44CA-A383-58CF05A3D2F6}|Default">
   <MonoDevelop.Ide.ItemProperties.asp__identity__core__ef PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ViewModels/RegisterViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/AccountController.cs">
     <Files>
-      <File FileName="Startup.cs" Line="64" Column="47" />
+      <File FileName="Startup.cs" Line="59" Column="17" />
       <File FileName="Models/ApplicationDbContext.cs" Line="20" Column="9" />
-      <File FileName="Models/ApplicationUser.cs" Line="6" Column="11" />
+      <File FileName="Models/ApplicationUser.cs" Line="12" Column="2" />
       <File FileName="Controllers/HomeController.cs" Line="16" Column="27" />
       <File FileName="Migrations/ApplicationDbContextModelSnapshot.cs" Line="23" Column="64" />
-      <File FileName="Controllers/AccountController.cs" Line="16" Column="25" />
-      <File FileName="ViewModels/RegisterViewModel.cs" Line="1" Column="1" />
+      <File FileName="Controllers/AccountController.cs" Line="37" Column="14" />
+      <File FileName="ViewModels/RegisterViewModel.cs" Line="11" Column="19" />
+      <File FileName="Views/Account/Register.cshtml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

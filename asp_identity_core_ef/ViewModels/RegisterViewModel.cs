@@ -5,19 +5,22 @@ namespace asp_identity_core_ef.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required, Display(Name = "First Name")]
         public string FName { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Last Name")]
         public string LName { get; set; }
 
-        [Required]
+        [Required, EmailAddress, MaxLength(256)]
         public string Email { get; set; }
 
-        [Required]
+        [Required, Compare("ConfirmPassword", ErrorMessage = "Password must match!"), DataType(DataType.Password), MinLength(4), MaxLength(50) ]
         public string Password { get; set; }
 
-        [Required]
+        [Required, DataType(DataType.Password), MinLength(4), MaxLength(50)]
         public string ConfirmPassword { get; set; }
+
+        [Required, DataType(DataType.Date)]
+        public DateTime Birthday { get; set; }
     }
 }
