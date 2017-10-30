@@ -15,7 +15,7 @@ namespace asp_identity_core_ef.ViewModels
         public string RestoName { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date, ErrorMessage = "Date is required!" )]
         [Display(Name = "Date visited")]
         public DateTime DateVisited { get; set; }
     }
