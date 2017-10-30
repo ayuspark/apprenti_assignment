@@ -1,4 +1,17 @@
-﻿@page
-@model IndexModel
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+    ViewData["Title"] = "Resto Reviews";
+}
+
+<h2>Resto Reviews</h2>
 @{
+    foreach ( var resto in @ViewBag.reviews_index)
+    {
+        <h3>Reviews for @resto.Name</h3>
+        foreach( var review in resto.Reviews)
+        {
+            <p>Reviewer: @review.ApplicationUserEmail&nbsp;&nbsp;<span>--&nbsp;&nbsp;@String.Format("{0:MMM d, yyyy}", @review.Created)</span></p>
+            <p>@review.ReviewContent</p>
+        }
+    }
 }
