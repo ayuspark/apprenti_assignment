@@ -71,7 +71,7 @@ namespace asp_identity_core_ef.Controllers
                     {
                         RestoId = resto_to_review_id,
                         ReviewContent = vm.ReviewContent,
-                        Created = Convert.ToDateTime(vm.DateVisited),
+                        Created = vm.DateVisited,
                         ApplicationUserEmail = User.Identity.Name,
                     };
                     _context.Add(new_review);
