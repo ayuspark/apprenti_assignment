@@ -19,6 +19,8 @@ namespace asp_identity_core_ef.Models
         }
 
         public DbSet<ApplicationUser> UserProfile { get; set; }
+        public DbSet<Resto> Restos { get; set; }
+        public DbSet<RestoReview> RestoReviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

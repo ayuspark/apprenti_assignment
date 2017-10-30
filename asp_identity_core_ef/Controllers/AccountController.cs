@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using asp_identity_core_ef.Models;
 using asp_identity_core_ef.ViewModels;
 
@@ -23,6 +24,7 @@ namespace asp_identity_core_ef.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("account/register")]
         public IActionResult Register()
         {
@@ -30,6 +32,8 @@ namespace asp_identity_core_ef.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         [Route("account/register")]
         public async Task<IActionResult> Register(RegisterViewModel vm)
         {
@@ -59,6 +63,46 @@ namespace asp_identity_core_ef.Controllers
                 
             }
             return View(vm); 
+        }
+
+        [HttpGet]
+        [Route("account/login")]
+        [AllowAnonymous]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("account/Login")]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel vm, string returnUrl = null)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, vm.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    Console.WriteLine("************* user logged in");
+                    Console.WriteLine("*************" + User.Identity.IsAuthenticated);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Login attempt failed.");
+                }
+            }
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("account/logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -52,15 +52,15 @@ namespace asp_identity_core_ef
                 options.User.RequireUniqueEmail = true;
             });
 
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.Cookie.HttpOnly = true;
-                options.Cookie.Expiration = TimeSpan.FromDays(10);
-                // options.LoginPath = "/user/login";
-                // options.LogoutPath = "/user/logout";
-                options.AccessDeniedPath = "/";
-                options.SlidingExpiration = true;
-            });
+            // services.ConfigureApplicationCookie(options =>
+            // {
+            //     options.Cookie.HttpOnly = true;
+            //     options.Cookie.Expiration = TimeSpan.FromDays(10);
+            //     // options.LoginPath = "/user/login";
+            //     // options.LogoutPath = "/user/logout";
+            //     options.AccessDeniedPath = "/";
+            //     options.SlidingExpiration = true;
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,8 +81,8 @@ namespace asp_identity_core_ef
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvc();
             app.UseAuthentication();
+            app.UseMvc();
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
 namespace asp_identity_core_ef.Models
@@ -8,5 +9,11 @@ namespace asp_identity_core_ef.Models
         public DateTime Birthday { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }
+        public List<RestoReview> Reviews { get; set; }
+
+        public ApplicationUser()
+        {
+            Reviews = new List<RestoReview>();
+        }
     }
 }
