@@ -4,42 +4,61 @@
 @model asp_identity_core_ef.ViewModels.RegisterViewModel
 
 <h2>Registration Page</h2>
+<div class="row">
+    <form class="col s6" asp-controller = "Account" asp-action = "Register" method="post">
+        <h4>Create a new account.</h4>
+        <hr />
+        
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="input-field">
+                    <input asp-for="FName" class="validate" />
+                    <label asp-for="FName"></label>
+                    <span asp-validation-for="FName" class="text-danger"></span>
+                </div>
+            </div>
 
-<form asp-controller = "Account" asp-action = "Register" method="post">
-    <h4>Create a new account.</h4>
-    <hr />
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="input-field">
-        <label asp-for="FName"></label>
-        <input asp-for="FName" class="validate" />
-        <span asp-validation-for="FName" class="text-danger"></span>
-    </div>
-    <div class="input-field">
-        <label asp-for="LName"></label>
-        <input asp-for="LName" class="validate" />
-        <span asp-validation-for="LName" class="text-danger"></span>
-    </div>
-    <div class="input-field">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="validate" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="input-field">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="validate" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-    <div class="input-field">
-        <label asp-for="ConfirmPassword"></label>
-        <input asp-for="ConfirmPassword" class="validate" />
-        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-    </div>
-    <div class="input-field">
-        <label asp-for="Birthday"></label>
-        <input asp-for="Birthday" class="validate" />
-        <span asp-validation-for="Birthday" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-default">Register</button>
-</form>
+            <div class="row">
+                <div class="input-field">
+                    <input asp-for="LName" class="validate" />
+                    <label asp-for="LName"></label>
+                    <span asp-validation-for="LName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <input asp-for="Email" class="validate" />
+                    <label asp-for="Email"></label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <input asp-for="Password" class="validate" />
+                    <label asp-for="Password"></label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <input asp-for="ConfirmPassword" class="validate" />
+                    <label asp-for="ConfirmPassword"></label>
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input asp-for="Birthday" class="datepicker validate" />
+                    <label class="active" asp-for="Birthday"></label>
+                    <span asp-validation-for="Birthday" class="text-danger"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Register</button>
+    </form>
+</div>
 
 

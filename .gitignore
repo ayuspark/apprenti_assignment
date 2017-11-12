@@ -218,3 +218,6 @@ $RECYCLE.BIN/
 
 # DB connections
 appsettings.json
+
+#localhost SSL CAs
+localhost.*
