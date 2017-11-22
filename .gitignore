@@ -7,11 +7,6 @@ djangos/django_venv
 instance/
 db.sqlite3
 
-# Download this file using PowerShell v3 under Windows with the following comand:
-# Invoke-WebRequest https://gist.githubusercontent.com/kmorcinek/2710267/raw/ -OutFile .gitignore
-# or wget:
-# wget --no-check-certificate http://gist.githubusercontent.com/kmorcinek/2710267/raw/.gitignore
-
 # User-specific files
 *.suo
 *.user
@@ -221,3 +216,33 @@ appsettings.json
 
 #localhost SSL CAs
 localhost.*
+
+
+###################
+#     ANGULAR     #
+###################
+/build/
+/benchpress-build/
+.DS_Store
+gen_docs.disable
+test.disable
+regression/temp*.html
+performance/temp*.html
+.idea/workspace.xml
+*~
+*.swp
+angular.js.tmproj
+node_modules/
+bower_components/
+angular.xcodeproj
+.idea
+*.iml
+.agignore
+.lvimrc
+libpeerconnection.log
+npm-debug.log
+/tmp/
+/scripts/bower/bower-*
+.vscode
+*.log
+*.stackdump
