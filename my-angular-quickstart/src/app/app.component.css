@@ -2,4 +2,15 @@ h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
+  text-align: center;
 }
+
+.section_barcode {
+  display: flex;
+}
+
+.barcode {
+  width: 10px;
+  height: 80px;
+}
+
