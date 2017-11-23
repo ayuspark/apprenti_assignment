@@ -5,5 +5,12 @@
   <div *ngFor="let div of numberOfDivs" class="barcode" [ngStyle]="{'background-color': div}"></div>
 </section>
 
+<section class="switches">
+  <button *ngFor="let swBtn of switchButtons; let idx = index" (click)="swBtn.turnSwitch()" [ngClass]="{'on': swBtn.switchBool, 'off': !swBtn.switchBool}">
+    {{ swBtn.switchStatus }}
+    <input type="hidden" [value]="idx">
+  </button>
+</section>
+
 <app-heros></app-heros>
 

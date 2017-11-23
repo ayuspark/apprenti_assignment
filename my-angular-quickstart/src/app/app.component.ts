@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, transition } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser/src/browser';
 import { ngModuleJitUrl } from '@angular/compiler';
@@ -6,6 +6,7 @@ import { NgModel } from '@angular/forms/src/directives/ng_model';
 import { NgModule } from '@angular/core/src/metadata/ng_module';
 
 import { RGBcolor } from '../app/rgbColor';
+import { Switches } from './switches';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,14 @@ import { RGBcolor } from '../app/rgbColor';
 export class AppComponent {
   title = 'Ma First Arugular App!';
   numberOfDivs = stringifyRGB();
+  
+  // switchBool: boolean = true;
+  // switchStatus:string = "ON";
+  // turnSwitch(): void {
+  //   this.switchBool = !this.switchBool;
+  //   this.switchStatus = (this.switchBool)? "ON" : "OFF";
+  // }
+  switchButtons: Switches[] = createSwitches();
 }
 
 function generateColor(): RGBcolor[]{
@@ -50,4 +59,14 @@ function stringifyRGB(): any[]{
     rgbStringArr.push(rgbString);
   }
   return rgbStringArr;
+}
+
+function createSwitches(): Switches[]{
+  let switchedArr: Switches[] = [];
+  for (let i = 0; i < 10; i++){
+    let sw: Switches;
+    sw = new Switches(true, "ON");
+    switchedArr.push(sw);
+  }
+  return switchedArr;
 }
