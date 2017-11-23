@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser/src/browser';
+import { ngModuleJitUrl } from '@angular/compiler';
+import { NgModel } from '@angular/forms/src/directives/ng_model';
+import { NgModule } from '@angular/core/src/metadata/ng_module';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'app';
+  title = 'Ma First Arugular App!';
 }
