@@ -18,12 +18,6 @@ export class AppComponent {
   title = 'Ma First Arugular App!';
   numberOfDivs = stringifyRGB();
   
-  // switchBool: boolean = true;
-  // switchStatus:string = "ON";
-  // turnSwitch(): void {
-  //   this.switchBool = !this.switchBool;
-  //   this.switchStatus = (this.switchBool)? "ON" : "OFF";
-  // }
   switchButtons: Switches[] = createSwitches();
 }
 

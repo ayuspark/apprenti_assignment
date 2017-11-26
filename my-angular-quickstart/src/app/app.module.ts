@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HerosComponent } from './heros/heros.component';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { arugularFormComponent } from './arugular-form/arugular-form.component';
 
 
 
@@ -13,7 +14,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
   declarations: [
     AppComponent,
     HerosComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    arugularFormComponent
   ],
   imports: [
     BrowserModule,

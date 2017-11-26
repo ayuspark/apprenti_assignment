@@ -1,0 +1,56 @@
+<p [hidden]="!arugularForm.form.valid">Form Valid!</p>
+<p [hidden]="!submitted">Successful registration! Welcome, {{user | json}}!</p>
+<p>{{ user | json }}</p>
+
+<form (ngSubmit)="onSubmit()" #arugularForm="ngForm">
+  <label for="username">USERNAME
+    <input type="text" name="username"
+    [(ngModel)]="user.username"
+    required
+    minlength="3"
+    maxlength="8"
+    #username="ngModel"
+    >
+  </label>
+  <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+     {{ username.errors | json }}
+  </div>
+
+  <label for="email">EMAIL
+    <input type="email" name="email" id="email"
+    [(ngModel)]="user.email"
+    required
+    #email="ngModel"
+    >
+  </label>
+  <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+    {{ email.errors | json }}
+  </div>
+
+  <label for="password">PASSWORD
+    <input type="password" name="password"
+    [(ngModel)]="user.password"
+    required
+    minlength="3"
+    maxlength="12"
+    #password="ngModel"
+    >
+  </label>
+  <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+    {{ password.errors | json }}
+  </div>
+
+  <label for="passConfirm">CONFIRM PASSWORD
+    <input type="password" name="passConfirm" 
+    ngModel
+    #passConfirm = ngModel
+    [pattern]="user.password">
+  </label>
+  <div [hidden]="passConfirm.pristine || passConfirm.valid" class="alert alert-danger">
+    {{ passConfirm.errors | json }}
+  </div>
+
+  <!-- <input type="submit" (click)="onSubmit()"> -->
+  <button type="submit" class="btn btn-success" [disabled]="!arugularForm.form.valid">Submit</button>
+
+</form>
