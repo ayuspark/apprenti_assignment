@@ -15,6 +15,9 @@ export class MyServiceService {
 
   updateData(newData:any): void {
     const tempData = this.data.getValue();
+    console.log("tempdata: ", tempData);
+    console.log("newData: ", newData);
+    console.log("this.Data: ", this.data);
     tempData.push(newData);
     this.data.next(newData);
   }
