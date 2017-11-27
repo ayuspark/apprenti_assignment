@@ -11,4 +11,10 @@
   <li *ngFor="let num of numbers">{{ num }}</li>
 </ul>
 
+<h2>BehaviorSubject</h2>
+<p>Below is the ** data:any[] ** from HeroComponent, it should receive the subscribed update from arugularFormComponent</p>
+<ul>
+  <li *ngFor="let d of data">{{ d.name }}</li>
+</ul>
+
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>

@@ -9,7 +9,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { arugularFormComponent } from './arugular-form/arugular-form.component';
 
 import { MyServiceService } from './my-service.service'
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { MyServiceService } from './my-service.service'
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [MyServiceService],
   bootstrap: [AppComponent]

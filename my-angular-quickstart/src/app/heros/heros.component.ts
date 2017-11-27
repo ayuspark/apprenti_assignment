@@ -21,8 +21,13 @@ export class HerosComponent implements OnInit {
     this._myService.addNumber(1);
   }
   
+  data: any[] = [];
+
   ngOnInit() {
     this.numbers = this._myService.retriveNumbers();
+    this._myService.data.subscribe(
+      (data) => {this.data = data}
+    )
   }
 
   onSelect(hero:Hero): void {
