@@ -42,6 +42,7 @@
 
   <label for="passConfirm">CONFIRM PASSWORD
     <input type="password" name="passConfirm" 
+    required
     ngModel
     #passConfirm = ngModel
     [pattern]="user.password">

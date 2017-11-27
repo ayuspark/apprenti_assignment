@@ -13,21 +13,21 @@ export class MyServiceService {
     this.retrieveData();
   }
 
-  // updateData(newData:any): void {
-  //   const tempData = this.data.getValue();
-  //   tempData.push(newData);
-  //   this.data.next(newData);
-  // }
+  updateData(newData:any): void {
+    const tempData = this.data.getValue();
+    tempData.push(newData);
+    this.data.next(newData);
+  }
   
   retrieveData() : void {
     this._http.get('https://5a1ba7e606220a0012d35159.mockapi.io/data').subscribe(
-      (d: any[]) => { this.data.next(d)}
+      (d: any[]) => { this.updateData(d)}
     )
   }
   
   addData(newData: any) {
     this._http.post('https://5a1ba7e606220a0012d35159.mockapi.io/data', newData).subscribe(
-      (resp) => { this.retrieveData }
+      (resp) => { this.retrieveData() }
     )
   }
 
