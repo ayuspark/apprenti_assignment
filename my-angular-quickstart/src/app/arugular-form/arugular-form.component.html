@@ -53,3 +53,9 @@
   <button type="submit" class="btn btn-success" [disabled]="!arugularForm.form.valid">Submit</button>
 
 </form>
+
+<h2>The numbers come from myServiceService, for <strong>arugularFormComponent</strong></h2>
+<p>*sans ngOnInit()*</p>
+<ul>
+  <li *ngFor="let num of numbers">{{ num }}</li>
+</ul>

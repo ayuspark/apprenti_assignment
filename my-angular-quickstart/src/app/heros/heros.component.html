@@ -5,4 +5,10 @@
   </li>
 </ul>
 
+<h2>The numbers below come from  for <strong>HeroComponent</strong></h2>
+<button (click)="addNumber()">Push 1 to myServiceService Number[]</button>
+<ul>
+  <li *ngFor="let num of numbers">{{ num }}</li>
+</ul>
+
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>

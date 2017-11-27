@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core/src/metadata/ng_module';
 
 import { RGBcolor } from '../app/rgbColor';
 import { Switches } from './switches';
+// import { MyServiceService } from './my-service.service';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,10 @@ import { Switches } from './switches';
 })
 
 export class AppComponent {
+
   title = 'Ma First Arugular App!';
   numberOfDivs = stringifyRGB();
-  
+
   switchButtons: Switches[] = createSwitches();
 }
 

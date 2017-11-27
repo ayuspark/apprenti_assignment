@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { arugularFormComponent } from './arugular-form/arugular-form.component';
 
+import { MyServiceService } from './my-service.service'
+
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { arugularFormComponent } from './arugular-form/arugular-form.component';
     BrowserModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [MyServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
