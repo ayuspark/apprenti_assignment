@@ -7,15 +7,12 @@ import { NgModel } from '@angular/forms/src/directives/ng_model';
   templateUrl: './arugular-form.component.html',
   styleUrls: ['./arugular-form.component.css']
 })
-export class arugularFormComponent implements OnInit {
+export class arugularFormComponent {
   submitted: boolean = false;
   user: ArugularUser = new ArugularUser();
   onSubmit(): void {
     this.submitted = true;
     console.log("New User: " +  this.user);
-  }
-
-  ngOnInit() {
   }
 
 }
