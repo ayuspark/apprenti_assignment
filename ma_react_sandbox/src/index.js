@@ -94,11 +94,32 @@ class Game extends React.Component {
         });
     }
 
+    jumpTo(move) {
+        const history = this.state.history;
+        history.length = move + 1;
+        this.setState({
+            history: history,
+            xIsNext: move%2 == 0? true : false,
+        });
+    };
+
     render() {
         const history = this.state.history;
         console.log('history: ', history);
         const current = history[history.length - 1];
         const winner = calculateWinner(current.squares);
+
+        // Writing steps
+        const moves = history.map((step, move) => {
+            const desc = move? 'Go to move #' + move : 'Go to game start'; // move should be the index
+            return (
+                <li key={move}>
+                    <button onClick={() => this.jumpTo(move)}>
+                    {desc}
+                    </button>
+                </li>
+            );
+        });
 
         let status;
         if (winner) {
@@ -117,7 +138,7 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{ status }</div>
-                    <ol>{/* TODO */}</ol>
+                    <ol>{ moves }</ol>
                 </div>
             </div>
         );
@@ -138,12 +159,7 @@ function calculateWinner(squares) {
         [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++) {
-        console.log("this is i: ", i);
         const [a, b, c] = lines[i];
-        console.log("this is [a,b,c]: ", [a,b,c]);
-        console.log('sq a: ', squares[a]);
-        console.log('sq b: ', squares[b]);
-        console.log('sq c: ', squares[c]);
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             // return either "X" or "O"
             return squares[a];
