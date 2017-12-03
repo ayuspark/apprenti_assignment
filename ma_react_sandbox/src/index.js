@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './card';
 
 // class Square extends React.Component {
 //     render() {
@@ -73,6 +74,7 @@ class Game extends React.Component {
                 squares: Array(9).fill(null),
             }],
             xIsNext: true,
+            stepNumber: 0, 
         }
     }
 
@@ -99,7 +101,7 @@ class Game extends React.Component {
         history.length = move + 1;
         this.setState({
             history: history,
-            xIsNext: move%2 == 0? true : false,
+            xIsNext: move%2 === 0? true : false,
         });
     };
 
