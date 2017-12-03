@@ -5,7 +5,7 @@ var destination = document.querySelector("#cardPractice");
 
 class Card extends React.Component {
     constructor(props) {
-        super([props]);
+        super(props);
         this.state = {
             colorValue: "#FF6663",
         }
