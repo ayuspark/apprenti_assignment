@@ -78,7 +78,4 @@ class LightningCounterDisplay extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <LightningCounterDisplay />,
-    document.querySelector("#lightening")
-);
+export default LightningCounterDisplay;

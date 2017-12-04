@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './card';
-import './lightening_state';
+import LightningCounterDisplay from './lightening_state';
 
 // class Square extends React.Component {
 //     render() {
@@ -176,4 +176,9 @@ function calculateWinner(squares) {
 ReactDOM.render(
     <Game />,
     document.getElementById('root')
+);
+
+ReactDOM.render(
+    <LightningCounterDisplay />,
+    document.querySelector("#lightening")
 );
