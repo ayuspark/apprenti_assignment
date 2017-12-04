@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 class LightningCounter extends React.Component {
     constructor(props, context) {
@@ -40,7 +40,7 @@ class LightningCounterDisplay extends React.Component {
             textAlign: "center",
             backgroundColor: "black",
             padding: 40,
-            marginTop: "20px",
+            margin: "20px auto 40px auto",
             fontFamily: "sans-serif",
             color: "#999",
             borderRadius: 10

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './card';
 import LightningCounterDisplay from './lightening_state';
+import TodoList from './to-do';
 
 // class Square extends React.Component {
 //     render() {
@@ -181,4 +182,9 @@ ReactDOM.render(
 ReactDOM.render(
     <LightningCounterDisplay />,
     document.querySelector("#lightening")
+);
+
+ReactDOM.render(
+    <TodoList />,
+    document.querySelector('#todo')
 );
