@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { createStore } from "redux";
+import { Provider, createProvider } from "react-redux";
+
 import './index.css';
 import './card';
 import LightningCounterDisplay from './lightening_state';
